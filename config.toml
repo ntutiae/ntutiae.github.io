@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://ntutiae.github.io/"
 languageCode = "zh"
 title = "北科大智慧自動化工程科"
 theme = "ntutiae"
