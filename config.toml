@@ -15,6 +15,16 @@ theme = "ntutiae"
     url = "/about/"
 
 [[menu.main]]
+    name = "師資介紹"
+    parent = "about"
+    url = "/about/teachers/"
+
+[[menu.main]]
+    name = "職涯發展"
+    parent = "about"
+    url = "/about/career"
+
+[[menu.main]]
     name = "活動總覽"
     weight = 10
     url = "/events/"
@@ -22,15 +32,19 @@ theme = "ntutiae"
 [[menu.main]]
     name = "學生成果"
     weight = 20
-    url = "/works/"
+    identifier = "works"
 
 [[menu.main]]
-    name = "FAQ"
+    name = "學習心得影片"
+    parent = "works"
+
+[[menu.main]]
+    name = "學生專題"
+    parent = "works"
+    url = "/works/projects"
+
+[[menu.main]]
+    name = "常見問題"
     weight = 30
     url = "/faq/"
-
-[[menu.main]]
-    name = "課程總覽"
-    parent = "about"
-    url = "/about/courses"
 

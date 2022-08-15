@@ -1,5 +1,12 @@
 {{ define "main" }}
 <main>
-    <h1>List of</h1>
+    <h1>{{ .Title }}</h1>
+    <ul>
+    {{ range .Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+    </ul>
 </main>
 {{ end }}
