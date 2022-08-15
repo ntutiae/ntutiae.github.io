@@ -1,4 +1,36 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'ntutiae'
+baseURL = "http://example.org/"
+languageCode = "zh"
+title = "北科大智慧自動化工程科"
+theme = "ntutiae"
+
+[[menu.main]]
+    name = "智慧自動化工程科"
+    weight = -1
+    url = "/"
+
+[[menu.main]]
+    name = "關於本科"
+    weight = 1
+    identifier = "about"
+    url = "/about/"
+
+[[menu.main]]
+    name = "活動總覽"
+    weight = 10
+    url = "/events/"
+
+[[menu.main]]
+    name = "學生成果"
+    weight = 20
+    url = "/works/"
+
+[[menu.main]]
+    name = "FAQ"
+    weight = 30
+    url = "/faq/"
+
+[[menu.main]]
+    name = "課程總覽"
+    parent = "about"
+    url = "/about/courses"
+
