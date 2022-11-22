@@ -1,0 +1,12 @@
+{{ define "main" }}
+<link rel="stylesheet" href="/css/events.css">
+<div class="container">
+    <div class="w-100 event-page-title">
+        <p class="m-0">{{ .Date }}</p>
+        <h1 class="mb-3">{{ .Title }}</h1>
+    </div>
+    <div class="row">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

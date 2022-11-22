@@ -1,0 +1,51 @@
+/* 師資介紹 */
+.teacher-group{
+    height: 18rem;
+    
+    /* border: 1.5px solid rgba(0, 0, 0, .3);
+    border-radius: 1rem; */
+}
+.teacher-group img{
+    height: 90%;
+}
+.teacher > p{
+    color: var(--blue2);
+    opacity: .5;
+}
+.teacher-info p{
+    margin-bottom: 0.1rem;
+}
+
+/* .teacher-info-icon::after{
+    content: attr(data-hover);
+    position: absolute;
+    padding: 3px;
+
+    color: black;
+    background-color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    z-index: 9999;
+    visibility: hidden;
+}
+.teacher-info-icon:hover::before{
+    opacity: 1;
+    visibility: visible;
+} */
+
+.hover-text{
+    position: absolute;
+    margin: -1.6rem 0 0 -1.7rem;
+    padding: 0.1rem 0.3rem;
+    visibility: hidden;
+    opacity: 0;
+    color: var(--blue3);
+    background-color: var(--red3);
+}
+.teacher-info-icon:hover + .hover-text{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
