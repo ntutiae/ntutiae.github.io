@@ -1,6 +1,7 @@
 baseURL = "https://ntutiae.github.io/"
 languageCode = "zh"
 title = "北科大智慧自動化工程科"
+hasCJKLanguage = true
 
 [[menu.main]]
     name = "智慧自動化工程科"
