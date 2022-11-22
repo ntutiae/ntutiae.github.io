@@ -1,17 +1,95 @@
 {{ define "main" }}
-<main>
-    <h1>{{ .Title }}</h1>
-    {{ range .Site.Data.teachers }}
-    <div>
-        <h2>{{ .title }}</h2>
-        <img src="{{ .image | relURL }}"></img>
-        {{ with .education }}<p>{{ . }}</p>{{ end }}
-        {{ with .lab }}<p>{{ . }}</p>{{ end }}
-        {{ with .area }}<p>{{ . }}</p>{{ end }}
-        {{ with .phone }}<p>{{ . }}</p>{{ end }}
-        {{ with .location }}<p>{{ . }}</p>{{ end }}
-        {{ with .email }}<p>{{ . }}</p>{{ end }}
+<div class="container">
+    <div class="row mb-5 title">
+        <h1 class="m-0 title-cn">師資介紹</h1>
+        <p class="title-en" style="margin-left: -3rem">Teachers</p>
     </div>
+
+    {{ range .Site.Data.teachers }}
+    <div class="content">
+        <!--重複-->
+        <div class="row justify-content-center align-items-center w-100 m-2 teacher-group">
+            <img class="col-3" src="{{ .image | relURL }}">
+            <div class="col-8 teacher">
+                <!-- 職稱 -->
+                <!-- <p class="m-0"><b>科主任</b></p> -->
+                <h4><b>{{ .title }}</b></h4>
+                <div class="teacher-info">
+                    <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mortarboard mr-1 teacher-info-icon" viewBox="0 0 16 16" data-hover="學歷">
+                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
+                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/>
+                    </svg>
+                    {{ with .education }}
+                    <span class="hover-text">學歷</span>
+                    <span class="teacher-info-content">{{ . }}</span>
+                    {{ end }}
+                    </p>
+
+                    {{ with .area }}
+                    <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book mr-1 teacher-info-icon" viewBox="0 0 16 16" data-hover="研究領域">
+                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                    </svg>
+                    <span class="hover-text">研究領域</span>
+                    <span class="teacher-info-content">{{ . }}</span>
+                    </p>
+                    {{ end }}
+
+
+
+                    {{ with .lab }}
+                    <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house teacher-info-icon" viewBox="0 0 16 16" data-hover="研究室／實驗室">
+                        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                    </svg>
+                    <span class="hover-text">研究室／實驗室</span>
+                    <span class="teacher-info-content">{{ . }}</span>
+                    </p>
+                    {{ end }}
+
+                    <div class="pl-4">
+                        {{ with .location }}
+                        <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map mr-1 teacher-info-icon" viewBox="0 0 16 16" data-hover="研究室地址">
+                            <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+                            <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+                        </svg>
+                        <span class="hover-text">研究室地址</span>
+                        <span class="teacher-info-content">{{ . }}</span>
+                        </p>
+                        {{ end }}
+                        {{ with .phone }}
+                        <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone mr-1 teacher-info-icon" viewBox="0 0 16 16" data-hover="研究室電話">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        <span class="hover-text">研究室電話</span>
+                        <span class="teacher-info-content">{{ . }}</span>
+                        </p>
+                        {{ end }}
+                    </div>
+
+                    {{ with .email }}
+                    <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope mr-1 teacher-info-icon" viewBox="0 0 16 16" data-hover="聯絡方式">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                    </svg>
+                    <span class="hover-text">聯絡方式</span>
+                    <span class="teacher-info-content">{{ . }}</span>
+                    </p>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-100"/>
     {{ end }}
-</main>
+<!-- 學歷：mortarboard
+    研究領域：book
+    研究室／實驗室：house
+    研究室地址：pin-map
+    研究室電話：telephone
+    E-mail：envelope -->
 {{ end }}

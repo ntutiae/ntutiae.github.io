@@ -1,0 +1,80 @@
+/* homepage */
+#homepage {
+  height: 100%;
+}
+
+.title-img {
+  position: absolute;
+  width: 25%;
+  min-width: 300px;
+  z-index: 99;
+  left: 10%;
+  bottom: 13%;
+}
+
+.spline {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  right: -20%;
+}
+#spline-pc{
+  display: inline;
+}
+#spline-phone{
+  display: none;
+}
+
+@keyframes getmore-animation {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
+#homepage-getmore {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 30px;
+}
+#homepage-getmore a {
+  margin: auto;
+  width: 8rem;
+  padding: 0.8rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--red2);
+  border: 1px solid var(--red2);
+  border-radius: 0.8rem;
+  animation: getmore-animation 1s ease infinite alternate;
+}
+
+
+/* 關於本科/科系特色 */
+#about-career {
+  margin-top: -50px;
+  padding-top: 100px;
+}
+.content{
+  margin: 2em auto 2em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-open, .feature-close{
+  display: none;
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  .title-img{
+    width: 40%;
+  }
+}
