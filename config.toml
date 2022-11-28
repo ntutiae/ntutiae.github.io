@@ -49,3 +49,5 @@ hasCJKLanguage = true
     weight = 30
     url = "/faq/"
 
+[params]
+    timeFormat = "Jan. 2. 2006"
