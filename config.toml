@@ -3,10 +3,8 @@ languageCode = "zh"
 title = "北科大智慧自動化工程科"
 hasCJKLanguage = true
 
-[[menu.main]]
-    name = "智慧自動化工程科"
-    weight = -1
-    url = "/"
+[params]
+    timeFormat = "Jan. 2. 2006"
 
 [[menu.main]]
     name = "關於本科"
@@ -18,11 +16,6 @@ hasCJKLanguage = true
     name = "師資介紹"
     parent = "about"
     url = "/about/teachers/"
-
-[[menu.main]]
-    name = "職涯發展"
-    parent = "about"
-    url = "/about/career"
 
 [[menu.main]]
     name = "活動總覽"
@@ -37,17 +30,9 @@ hasCJKLanguage = true
 [[menu.main]]
     name = "學習心得影片"
     parent = "works"
-    url = "/reflections/"
-
-[[menu.main]]
-    name = "學生專題"
-    parent = "works"
-    url = "/projects/"
+    url = "/reflections/111/1"
 
 [[menu.main]]
     name = "常見問題"
     weight = 30
     url = "/faq/"
-
-[params]
-    timeFormat = "Jan. 2. 2006"
