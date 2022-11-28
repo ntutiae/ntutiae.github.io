@@ -1,0 +1,54 @@
+/* 學習心得影片 */
+.btn-close{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.btn-close:focus{
+    border: none;
+}
+
+#reflections-rules{
+    margin: 1.5rem 6rem 0rem 6rem;
+}
+.reflections-rules{
+    list-style-type: decimal;
+}
+
+#reflections-content-iae1,
+#reflections-content-iae2,
+#reflections-content-iae3,
+#reflections-content-iae4,
+#reflections-content-iae5{
+    margin: 0rem 1rem;
+}
+
+.reflections-vid > a > img{
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.reflections-vid > a > img:hover{
+    border: 2.5px var(--blue2) solid;
+    cursor: pointer;
+    transform: scale(1.03, 1.03);
+    transition: ease .5s;
+}
+
+.reflections-vid .modal-body{
+    position: relative;
+    width: 100%;
+    height: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 56.25%;
+    display: flex;
+    justify-content: center;
+}
+.reflections-vid iframe{
+    position: absolute;
+    width: 95%;
+    height: 95%;
+}
+
+.reflections-result{
+    display: none;
+}
