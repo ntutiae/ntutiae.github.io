@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+:root {
+    --white: #ffffff;
+    --black: #121212;
+    --gray1: #414141;
+    --gray2: #585858;
+    --gray3: #cccccc;
+    --blue1: #758b99;
+    --blue2: #7998ac;
+    --blue3: #8ca6b5;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+
+    color: var(--black);
+    font-family: 'Montserrat', sans-seri;
+    font-weight: 500;
+}
+
+/* scrollbar */ 
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-button{
+}
+::-webkit-scrollbar-track-piece{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 7px;
+    background-color: var(--blue1);
+    opacity: .4;
+}
+::-webkit-scrollbar-track{
+    box-shadow: transparent;
+}
+
+/* navbar */
+.navbar{
+    width: 100%;
+    z-index: 999;
+    user-select: none;
+    background-color: var(--black);
+    font-family: 'Montserrat', 'Noto Sans TC', sans-seri;
+}
+.navbar a{
+    text-decoration: none;
+}
+.container-fluid{
+    z-index: 999;
+}
+.navbar-toggler:focus{
+    outline: 0;
+}
+
+#navbar-brand-img{
+    position: relative;
+    height: 52px;
+}
+
+.nav-link{
+    color: var(--blue3)  !important;
+    opacity: .6;
+}
+.nav-link:hover{
+    opacity: .7;
+}
+.active, 
+.active:hover{
+    opacity: 1;
+}
+.dropdown-menu{
+    padding: 0.4rem 0;
+    background-color: var(--gray1);
+}
+.dropdown-item{
+    padding: 0.25rem 1.2rem;
+    color: var(--blue3);
+    opacity: .6;
+}
+.dropdown-item:hover:not(.active){
+    color: var(--blue3);
+    opacity: .8;
+    background-color: #52575c;
+}
+.dropdown-menu .active,
+.dropdown-item:active{
+    color: var(--blue3);
+    opacity: 1;
+    background-color: transparent;
+}
+
+.dropdown-header{
+    padding: 0.25rem 1.2rem;
+    color: var(--blue2)
+}
+.dropdown-item-2{
+    padding: 0.25rem 1.7rem;
+}
+.dropdown-divider{
+    border-top: 1px solid var(--blue1);
+}
+
+.nav-select{
+    margin-right: 12px;
+    padding: 0.2rem 2rem 0.2rem 0.5rem;
+    color: var(--gray1);
+    font-weight: 400;
+    border-radius: 0.3rem;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("") 90% / 15% no-repeat var(--blue3);
+}
+.nav-select:focus{
+    outline: none;
+}
+.nav-select option{
+    background-color: var(--red3);
+    opacity: .8;
+}
+
+
+/* html */
+h1, h2, h3, h4, h5, h6{
+    font-weight: bold !important;
+}
+h1 b, h2 b, h3 b, h4 b, h5 b, h6 b{
+}
+a, 
+a:hover{
+    color: var(--gray1);
+    text-decoration: none;
+}
+img{
+    object-fit: contain;
+}
+
+
+/* bootstrap自定義設定 */
+.container{
+    margin-top: 8rem;
+}
+
+
+
+/* 標題 */
+.title{
+    width: fit-content;
+}
+.title::before{
+    /* content: "";
+    background-image: url(./static/title-decoration1.png);
+    width: 2rem;
+    height: 2rem;
+    margin-top: -1rem;
+    margin-right: 1rem;
+    font: 3rem "M PLUS 1p"; */
+}
+.title::after{
+    /* content: "";
+    background-image: url(./static/title-decoration2.png);
+    margin-top: 3rem;
+    font: 3rem "M PLUS 1p"; */
+}
+.title-cn{
+    font-size: 2.5rem;
+}
+.title-cn::first-letter{
+    font-size: 140%;
+}
+.title-en{
+    color: var(--blue2);
+    font-family: "Poppins", sans-serif;
+}
+.title-decoration{
+    width: 3rem;
+}
+
+/* tabs */
+.mytabs a{
+    margin: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    color: var(--gray1);
+    opacity: .5;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+.mytabs a:hover{
+    color: var(--gray1);
+    opacity: .7;
+}
+.mytabs-active{
+    color: var(--gray1)  !important;
+    opacity: 1  !important;
+}
+
+
+
+/* footer */
+footer{
+    width: 100%;
+    height: 25rem;
+    margin-top: 5rem;
+    color: var(--blue3);
+    background-color: var(--black);
+}
+footer hr{
+    background-color: var(--blue1);
+}
+.footer-img{
+    border: var(--blue3) 1.5px solid;
+    border-radius: 50%;
+}

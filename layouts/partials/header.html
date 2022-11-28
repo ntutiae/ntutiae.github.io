@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/img/navbar-brand.png" rel="臺北科技大學 智慧自動化工程科" id="navbar-brand-img">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ .URL }}" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ .Name }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        {{ range .Children }}
+                        <li><a class="dropdown-item active" href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                    </ul>
+                </li>
+                {{ else }}
+                <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+                {{ end }}
+            </ul>
+
+            <!--
+            <select class="nav-select">
+                <option>中文</option>
+                <option>English</option>
+            </select>
+            -->
+        </div>
+</nav>
+
+

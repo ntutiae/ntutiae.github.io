@@ -1,0 +1,52 @@
+.event{
+    padding: 2rem;
+    background-color: aliceblue;
+    border-radius: 1rem;
+}
+.event:hover{
+    transform: scale(1.02, 1.02);
+    transition: ease-in-out 0.3s;
+}
+
+.event-page-title p{
+    color: var(--blue2)
+}
+
+.event-page-content{
+    width: 90%;
+    margin: auto;    
+    display: flex;
+    flex-direction: column;
+}
+.event-page-content p,
+.comment{
+    width: 97%;
+    align-self: center;
+}
+.event-page-content img{
+    width: 90%;
+    margin: 1rem 0 2.5rem 0;
+    align-self: center;
+}
+.event-page-content .img-p{
+    width: auto;
+    margin: -2rem 0 2.5rem 0;
+    align-self: center;
+    color: var(--blue2);
+}
+
+.comment{
+    margin: 1rem 0 1rem 1rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 3px solid var(--blue2);
+}
+article p:first-child{
+    margin-bottom: 0.3rem;
+}
+.comment-name{
+    margin: 0;
+    text-align: end;
+}
+.comment-name::before{
+    content: "-"
+}
