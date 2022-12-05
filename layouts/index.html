@@ -2,37 +2,46 @@
 <script>
     let hi = "IIIIIIII         A         EEEEEEE\n   II           AAA        E------\nIIIIIIII      A     A      EEEEEEE\n";
     let feature = document.getElementsByClassName("feature");
+    let feature_input = feature.children[0];
     let feature_open = document.getElementsByClassName("feature-open");
     let feature_close = document.getElementsByClassName("feature-close");
 
-    function Feature_event(i, event){
-        if(event == "open"){
-            feature[i].children[1].style.display = "block";
-            feature_open[i].style.display = "none";
-            feature_close[i].style.display = "block";
-        }
-        if(event == "close"){
-            feature[i].children[1].style.display = "none";
-            feature_open[i].style.display = "block";
-            feature_close[i].style.display = "none";
-        }
-    }
+    // function Feature_event(i, event){
+    //     if(event == "open"){
+    //         feature[i].children[1].style.display = "block";
+    //         feature_open[i].style.display = "none";
+    //         feature_close[i].style.display = "block";
+    //     }
+    //     if(event == "close"){
+    //         feature[i].children[1].style.display = "none";
+    //         feature_open[i].style.display = "block";
+    //         feature_close[i].style.display = "none";
+    //     }
+    // }
+
+    // function Feature(){
+    //     if(window.screen.width < 991){
+    //         for( let i=0; i<feature.length; i++){
+    //             feature[i].children[1].style.display = "none";
+    //             feature_open[i].style.display = "block";
+    //             feature_close[i].style.display = "none";
+    //             feature_open[i].addEventListener("click", Feature_event(i ,"open"))
+    //             feature_close[i].addEventListener("click", Feature_event(i ,"close"))
+    //         }
+    //     }else{
+    //         for( let i=0; i<feature.length; i++){
+    //             feature[i].children[1].style.display = "block";
+    //             feature_open[i].style.display = "none";
+    //             feature_close[i].style.display = "none";
+    //         }
+    //     }
+    // }
 
     function Feature(){
         if(window.screen.width < 991){
-            for( let i=0; i<feature.length; i++){
-                feature[i].children[1].style.display = "none";
-                feature_open[i].style.display = "block";
-                feature_close[i].style.display = "none";
-                feature_open[i].addEventListener("click", Feature_event(i ,"open"))
-                feature_close[i].addEventListener("click", Feature_event(i ,"close"))
-            }
+            feature_input.checked = true;
         }else{
-            for( let i=0; i<feature.length; i++){
-                feature[i].children[1].style.display = "block";
-                feature_open[i].style.display = "none";
-                feature_close[i].style.display = "none";
-            }
+            feature_input.checked = false;
         }
     }
 
@@ -96,8 +105,9 @@
         <h1>教學特色</h1>
         <div class="text-left">
             <div class="row m-5">
-                <img class="col-3 order-1" src="/img/homepage/feature-ptech.jpg">
-                <div class="col-9 order-2 feature">
+                <img class="col-3 order-1 feature-img" src="/img/homepage/feature-ptech.jpg">
+                <label class="col-9 order-2 feature">
+                    <input type="checkbox">
                     <h3>與世界級IBM合作，<br>導入<b>IBM之P-TECH</b>課程模組。</h3>
                     <p>
                     &emsp; &emsp;為解決長期以來學術、技術和職場技能脫鉤的問題，P-TECH學校五專班是由產業夥伴與合作學校共同發展能力發展藍圖（Skills Mapping），由產業夥伴向學校提出五專畢業生適合的職務，以及所需工作技能，並依照實際職務需求與老師們共同規劃課程內容並協助授課，以確保學校課程能提供學生未來就業所需技能。<br>
@@ -105,50 +115,52 @@
                     </p>
                     <a class="feature-open">展開</a>
                     <a class="feature-close">收起</a>
-                </div>
+                </label>
             </div>
             <div class="row m-5">
-                <img class="col-3 order-2" src="/img/homepage/feature-teachers.jpg">
-                <div class="col-9 order-1 feature">
+                <img class="col-3 order-2 feature-img" src="/img/homepage/feature-teachers.jpg">
+                <label class="col-9 order-1 feature">
+                    <input type="checkbox">
                     <h3>實習課程採<b>一徒二師制</b>，專業導師及企業導師聯合諮詢輔導，結合理論與實務的多元管道。</h3>
                     <p>
                     &emsp; &emsp;為協助同學在學期間強化專業技能素養與職場實務鏈結，故推動一徒二師制度，即校內專業導師與業界企業導師共同輔導學生，讓同學們在進行自主學習、製作專題抑或是實習過程中充分得到諮詢資源及專業協助，同時也希望同學們及早了解並預備職場就業或未來研究所升學道路。
                     </p>
                     <a class="feature-open">展開</a>
                     <a class="feature-close">收起</a>
-                </div>
+                </label>
             </div>
             <div class="row m-5">
-                <img class="col-3 order-1" src="/img/homepage/feature-international.jpg">
-                <div class="col-9 order-2 feature">
+                <img class="col-3 order-1 feature-img" src="/img/homepage/feature-international.jpg">
+                <label class="col-9 order-2 feature">
+                    <input type="checkbox">
                     <h3>及早培養<b>國際移動力</b>，<br>洞察先機並精準與市場接軌。</h3>
                     <p>
                     &emsp; &emsp;為增進學生之國際移動力與國際視野，本班特別加強英文能力之訓練，使其能與國際接軌；除增加英語授課時數外，專一至專四夜間再加強英文訓練，並於專三通過英語檢定。低年級寒/暑假規劃海外企業參訪與觀摩國際競賽；高年級專業課程採中英雙語教學或全英語教學，並規劃國際交換學生學習經歷；此外，由企業導師協助安排海外企業暑期實習或全學期海外企業實習。
                     </p>
                     <a class="feature-open">展開</a>
                     <a class="feature-close">收起</a>
-                </div>
+                </label>
             </div>
         </div>
     </div>
 
     <hr class="w-100"/>
-    <div class="content">
+    <div class="content field">
         <h1>人工智慧應用領域</h1>
         <div class="row">
-            <div class="col-md-3 col-sm-6 d-flex flex-column">
+            <div class="col-lg-3 col-sm-6 d-flex flex-column">
                 <img src="/img/homepage/AI-BigData.png" class="p-5">
                 <p>大數據演算</p>
             </div>
-            <div class="col-md-3 col-sm-6 d-flex flex-column">
+            <div class="col-lg-3 col-sm-6 d-flex flex-column">
                 <img src="/img/homepage/AI-MachineLearning.png" class="p-5">
                 <p>機器學習</p>
             </div>
-            <div class="col-md-3 col-sm-6 d-flex flex-column">
+            <div class="col-lg-3 col-sm-6 d-flex flex-column">
                 <img src="/img/homepage/AI-DeepLearning.png" class="p-5">
                 <p>深度學習</p>
             </div>
-            <div class="col-md-3 col-sm-6 d-flex flex-column">
+            <div class="col-lg-3 col-sm-6 d-flex flex-column">
                 <img src="/img/homepage/AI-SoftwareRobot.png" class="p-5">
                 <p>智慧型代理人</p>
             </div>

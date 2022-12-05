@@ -1,0 +1,19 @@
+
+.faq-block svg{
+    transition: transform .3s ease-in-out;
+}
+.faq-block:not([open]) svg{
+    transform: rotate(-90deg);
+}
+
+
+.faq-block .faq-ans{
+    margin: 0 0 .5rem .5rem;
+    transition: opacity .5s ease-in-out;
+}
+.faq-block[open] .faq-ans{
+    opacity: 1;
+}
+.faq-block:not([open]) .faq-ans{
+    opacity: 0;
+}

@@ -1,4 +1,5 @@
 .event{
+    margin: 1rem;
     padding: 2rem;
     background-color: aliceblue;
     border-radius: 1rem;
@@ -14,39 +15,49 @@
 
 .event-page-content{
     width: 90%;
-    margin: auto;    
-    display: flex;
-    flex-direction: column;
+    margin: auto;
+}
+
+.event-page-content h2{
+    margin: 1.5rem 0 0.5rem 0;
 }
 .event-page-content p,
-.comment{
+.event-page-content blockquote{
     width: 97%;
     align-self: center;
 }
-.event-page-content img{
+.event-page-content img,
+.event-page-content figure{
     width: 90%;
-    margin: 1rem 0 2.5rem 0;
-    align-self: center;
+    text-align: end;
 }
-.event-page-content .img-p{
+.event-page-content figure{
+    margin: 1rem 0 1rem 0;
+}
+.event-page-content figcaption{
     width: auto;
-    margin: -2rem 0 2.5rem 0;
-    align-self: center;
+    margin-bottom: 1rem;
+    text-align: center;
     color: var(--blue2);
 }
 
-.comment{
+.event-page-content blockquote ol{
+    padding: 0;
+}
+.event-page-content blockquote li{
     margin: 1rem 0 1rem 1rem;
     padding: 0.5rem 0 0.5rem 1rem;
     border-left: 3px solid var(--blue2);
+    list-style-type: none;
 }
-article p:first-child{
-    margin-bottom: 0.3rem;
+.event-page-content blockquote li p{
+    margin: 0;
 }
-.comment-name{
+
+/* .comment-name{
     margin: 0;
     text-align: end;
 }
 .comment-name::before{
     content: "-"
-}
+} */

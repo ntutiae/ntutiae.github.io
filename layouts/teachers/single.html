@@ -7,7 +7,7 @@
     </div>
 
     {{ range .Site.Data.teachers }}
-    <div class="content">
+    <div class="m-0 content">
         <!--重複-->
         <div class="row justify-content-center align-items-center w-100 m-2 teacher-group">
             <img class="col-3" src="{{ .image | relURL }}">
@@ -86,6 +86,7 @@
         </div>
 
         <hr class="w-100"/>
+    </div>
     {{ end }}
 <!-- 學歷：mortarboard
     研究領域：book
@@ -93,4 +94,5 @@
     研究室地址：pin-map
     研究室電話：telephone
     E-mail：envelope -->
+</div>
 {{ end }}

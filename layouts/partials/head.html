@@ -1,8 +1,6 @@
 <head>
-    <title>{{ .Site.Title }}</title>
+    <title>{{ with .Title }}{{ . }}｜智慧自動化工程科 - 國立臺北科技大學{{ else }}{{ .Site.Title }}{{ end }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>智慧自動化工程科 - 國立臺北科技大學</title>
     <link rel="icon" href="/img/badge.png" type="image/icon type">
 
     <!--JQuery & bootstrap-->
