@@ -1,13 +1,63 @@
 .event{
     margin: 1rem;
     padding: 2rem;
-    background-color: aliceblue;
+    position: relative;
     border-radius: 1rem;
+    background-color: rgba(var(--blue3), .3);
+
+    transition: all 1s ease-in-out;
 }
-.event:hover{
-    transform: scale(1.02, 1.02);
-    transition: ease-in-out 0.3s;
+.event-content{
+    z-index: 10;
 }
+.event > div{
+    width: 100%;
+    height: 100%;
+}
+.event > div::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    border-radius: 1rem;
+    background-color: var(--blue3);
+    opacity: .3;
+
+    transition: all 0.5s;
+}
+.event > div:hover::before{
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+.event > div::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    opacity: 0;
+    border: 1.5px solid var(--blue2);
+    border-radius: 1rem;
+
+    transform: scale(1.1, 1.1);
+    transition: all 0.5s;
+}
+.event > div:hover::after{
+    opacity: 1;
+    transform: scale(1, 1);
+}
+.event > div:focus::after{
+    transform: scale(1.1, 1.1);
+}
+
+
 
 .event-page-title p{
     color: var(--blue2)
@@ -16,27 +66,34 @@
 .event-page-content{
     width: 90%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .event-page-content h2{
     margin: 1.5rem 0 0.5rem 0;
+    align-self: baseline;
 }
 .event-page-content p,
 .event-page-content blockquote{
-    width: 97%;
-    align-self: center;
+    width: 100%;
 }
-.event-page-content img,
+.event-page-content img{
+    width: 100%;
+    max-height: 50rem;
+}
+.event-page-content figure,
+.event-page-content p>img{
+    width: 103%;
+    margin-bottom: 1.3rem;
+}
 .event-page-content figure{
-    width: 90%;
-    text-align: end;
+    margin-top: 2rem;
 }
-.event-page-content figure{
-    margin: 1rem 0 1rem 0;
-}
-.event-page-content figcaption{
-    width: auto;
-    margin-bottom: 1rem;
+.event-page-content figcaption > p{
+    margin: 0 0 1rem 0;
     text-align: center;
     color: var(--blue2);
 }

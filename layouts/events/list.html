@@ -8,13 +8,17 @@
     </div>
 
     {{ range .Pages }}
-    <a class="row justify-content-center event" href="{{ .RelPermalink }}">
-        <div class="col-11 col-lg-7">
-            <p class="m-0 event-time">{{ .Date.Format .Site.Params.TimeFormat }}</p>
-            <h2 class="mb-2">{{ .Title }}</h2>
-            <p>{{ .Summary }}</p>
+    <a class="row event" href="{{ .RelPermalink }}">
+        <div>
+        <div class="w-100 row justify-content-center">
+            <div class="col-12 col-lg-7">
+                <p class="m-0 event-time">{{ .Date.Format .Site.Params.TimeFormat }}</p>
+                <h2 class="mb-2">{{ .Title }}</h2>
+                <p>{{ .Summary }}</p>
+            </div>
+            <img class="col-12 col-lg-5" src="https://miro.medium.com/max/828/1*_PmLWgvuPq4T0AYDgBiaZA.jpeg">
         </div>
-        <img class="col-11 col-lg-5" src="https://miro.medium.com/max/828/1*_PmLWgvuPq4T0AYDgBiaZA.jpeg">
+        </div>
     </a>
     {{ end }}
 </div>

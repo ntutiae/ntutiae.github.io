@@ -17,3 +17,7 @@
 .faq-block:not([open]) .faq-ans{
     opacity: 0;
 }
+
+.faq-ans a{
+    margin-top: .3rem;
+}

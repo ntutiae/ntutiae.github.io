@@ -3,12 +3,14 @@
         <a class="navbar-brand" href="/">
             <img src="/img/navbar-brand.png" rel="臺北科技大學 智慧自動化工程科" id="navbar-brand-img">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggle x collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="nav-icon-bar"></span>
+            <span class="nav-icon-bar"></span>
+            <span class="nav-icon-bar"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
                 {{ $link := .RelPermalink | absURL }}
                 {{ range .Site.Menus.main }}
                 {{ if .HasChildren }}
