@@ -10,7 +10,7 @@
     {{ range .Pages }}
     <a class="row event" href="{{ .RelPermalink }}">
         <div>
-        <div class="w-100 row justify-content-center">
+        <div class="w-100 row justify-content-center mx-lg-2 m-2">
             <div class="col-12 col-lg-7">
                 <p class="m-0 event-time">{{ .Date.Format .Site.Params.TimeFormat }}</p>
                 <h2 class="mb-2">{{ .Title }}</h2>

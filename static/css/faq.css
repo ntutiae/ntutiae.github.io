@@ -1,5 +1,6 @@
 
 .faq-block svg{
+    height: 1.5rem;
     transition: transform .3s ease-in-out;
 }
 .faq-block:not([open]) svg{
@@ -20,4 +21,8 @@
 
 .faq-ans a{
     margin-top: .3rem;
+    transition: all .3s ease-in-out;
+}
+.faq-ans a:hover{
+    color: var(--blue1);
 }
