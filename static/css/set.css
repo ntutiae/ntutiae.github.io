@@ -190,12 +190,16 @@ html, body{
         z-index: 1;
 
         background-color: var(--wcolor);
-        transition: height .7s ease-in-out;
+        transition: all .7s ease-in-out;
     }
     .navbar-collapse.show{
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: all .7s ease-in-out
+    }
+    .navbar-nav{
+        font-size: 1.5rem;
     }
     .dropdown-menu{
         padding-top: 0;
@@ -223,6 +227,7 @@ img{
 
 /* bootstrap自定義設定 */
 .container{
+    min-height: calc(100% - 450px);
     margin-top: 8rem;
 }
 
@@ -269,7 +274,7 @@ img{
 /* footer */
 footer{
     width: 100%;
-    height: 25rem;
+    height: 450px;
     margin-top: 5rem;
     color: var(--blue3);
     background-color: var(--wcolor);

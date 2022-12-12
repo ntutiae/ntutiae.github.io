@@ -6,7 +6,7 @@
     let feature = document.getElementsByClassName("feature");
     let feature_input = feature.children[0];
 
-    function feature(){
+    function Feature(){
         if(window.screen.width < 991){
             feature_input.checked = true;
         }else{
@@ -14,9 +14,9 @@
         }
     }
 
-    function homepage(){
+    function Homepage(){
         let pc = document.getElementById("spline-pc");
-        let phone = document.getElementById("spline-phone");
+        let phone = document.getElementById("spline-mobile");
         let title = document.getElementsByClassName("title-img")[0];
         if(window.screen.width < 650 && window.screen.width > 450){
             pc.style.display = "none";
@@ -33,13 +33,13 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         console.log(hi);
-        feature();
-        homepage();
+        Feature();
+        Homepage();
     })
     window.addEventListener("resize", () => {
         console.log("window width:" + window.screen.width + "; window height: " + window.screen.height)
-        feature();
-        homepage();
+        Feature();
+        Homepage();
     })
 </script>
 
@@ -50,7 +50,7 @@
 
     <div class="spline">
         <iframe id="spline-pc" src='https://my.spline.design/-f801562f446c553adaa89686a921be46/' frameborder='0' width='100%' height='100%'></iframe>
-        <iframe id="spline-phone" src='https://my.spline.design/copy-21a18c0a3c14c56c3c5e7b954bba2f8c/' frameborder='0' width='100%' height='100%'></iframe>
+        <iframe id="spline-mobile" src='https://my.spline.design/copy-21a18c0a3c14c56c3c5e7b954bba2f8c/' frameborder='0' width='100%' height='100%'></iframe>
     </div>
 
     <div id="homepage-getmore" >
@@ -69,7 +69,7 @@
     </div>
 
     <hr class="w-100"/>
-    <div class="content">
+    <div class="content" id="feature-pc">
         <h1 data-aos="fade-up" data-aos-duration="1000">教學特色</h1>
         <div class="text-left">
             <div class="row m-5" data-aos="fade-up" data-aos-duration="1000">
@@ -111,10 +111,10 @@
             </div>
         </div>
     </div>
-    <!-- <div class="content">
+    <div class="content" id="feature-mobile">
         <h1 data-aos="fade-up" data-aos-duration="1000">教學特色</h1>
-        <div class="text-left" id="feature">
-            <div class="row my-5">
+        <div class="text-left">
+            <div class="row my-3">
                 <label class="feature" data-aos="fade-up" data-aos-duration="1000">
                     <input type="checkbox">
                     <h3>與世界級IBM合作，<br>導入<b>IBM之P-TECH</b>課程模組。</h3>
@@ -126,7 +126,7 @@
                     <a class="feature-close">收起</a>
                 </label>
             </div>
-            <div class="row my-5">
+            <div class="row my-3">
                 <label class="feature" data-aos="fade-up" data-aos-duration="1000">
                     <input type="checkbox">
                     <h3>實習課程採<b>一徒二師制</b>，專業導師及企業導師聯合諮詢輔導，結合理論與實務的多元管道。</h3>
@@ -137,7 +137,7 @@
                     <a class="feature-close">收起</a>
                 </label>
             </div>
-            <div class="row my-5">
+            <div class="row my-3">
                 <label class="feature" data-aos="fade-up" data-aos-duration="1000">
                     <input type="checkbox">
                     <h3>及早培養<b>國際移動力</b>，<br>洞察先機並精準與市場接軌。</h3>
@@ -149,7 +149,7 @@
                 </label>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <hr class="w-100"/>
     <div class="content field">
