@@ -1,8 +1,6 @@
 <head>
-    <title>{{ .Site.Title }}</title>
+    <title>{{ with .Title }}{{ . }}｜智慧自動化工程科 - 國立臺北科技大學{{ else }}{{ .Site.Title }}{{ end }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>智慧自動化工程科 - 國立臺北科技大學</title>
     <link rel="icon" href="/img/badge.png" type="image/icon type">
 
     <!--JQuery & bootstrap-->
@@ -11,7 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <link rel="stylesheet" href="/css/set.css">
-    <link rel="stylesheet" href="/css/index.css">
     <script src="/js/set.js"></script>
 </head>

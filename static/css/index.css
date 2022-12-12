@@ -3,7 +3,7 @@
   height: 100%;
 }
 
-.title-img {
+.title-img{
   position: absolute;
   width: 25%;
   min-width: 300px;
@@ -12,7 +12,7 @@
   bottom: 13%;
 }
 
-.spline {
+.spline{
   width: 100%;
   height: 100%;
   top: 0px;
@@ -21,9 +21,26 @@
 #spline-pc{
   display: inline;
 }
-#spline-phone{
+#spline-mobile{
   display: none;
 }
+@media (max-width: 650px){
+  #spline-pc{
+    display: none;
+  }
+  #spline-mobile{
+    display: inline;
+  }
+  .title-img{
+    width: 35%;
+  }
+}
+@media (max-width: 450px){
+  .title-img{
+    width: 60%;
+  }
+}
+
 
 @keyframes getmore-animation {
   from { transform: translateY(0); }
@@ -36,7 +53,7 @@
   position: absolute;
   bottom: 30px;
 }
-#homepage-getmore a {
+#homepage-getmore a{
   margin: auto;
   width: 8rem;
   padding: 0.8rem;
@@ -48,15 +65,15 @@
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
-  color: var(--red2);
-  border: 1px solid var(--red2);
+  color: var(--blue2);
+  border: 1px solid var(--blue2);
   border-radius: 0.8rem;
   animation: getmore-animation 1s ease infinite alternate;
 }
 
 
 /* 關於本科/科系特色 */
-#about-career {
+#about-career{
   margin-top: -50px;
   padding-top: 100px;
 }
@@ -67,14 +84,85 @@
   align-items: center;
   text-align: center;
 }
+#feature-pc{
+  display: inline;
+}
+#feature-mobile{
+  display: none;
+}
+#feature-mobile > div{
+  position: relative;
+}
 
-.feature-open, .feature-close{
+.feature input[type="checkbox"]{
+  display: none;
+}
+.feature-open,
+.feature-close{
   display: none;
   cursor: pointer;
 }
+.feature-img{
+  align-self: baseline;
+}
 
-@media(max-width: 768px){
-  .title-img{
-    width: 40%;
+@media (max-width: 991px){
+  .feature-open, 
+  .feature-close{
+    display: block;
   }
+  .feature input:checked ~ .feature-open,
+  .feature input:not(:checked) ~ p,
+  .feature input:not(:checked) ~ .feature-close{
+    display: none;
+  }
+  .feature br{
+    display: none;
+  }
+  
+  #feature-pc{
+    display: none;
+  }
+  #feature-mobile{
+    display: inline;
+  }
+  #feature-mobile h1{
+    margin-bottom: 2rem;
+  }
+  #feature-mobile > div:nth-child(1):before,
+  #feature-mobile > div:nth-child(2):before{
+    content: '';
+    width: .2rem;
+    height: 100%;
+    position: absolute;
+    background-color: var(--blue2);
+  }
+  #feature-mobile > div > div::after{
+    content: '';
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: .35rem;
+    position: absolute;
+    border: .2rem solid var(--blue1);
+    border-radius: 50%;
+    background-color: var(--bgcolor);
+  }
+  .feature{
+    margin-left: 4rem;
+  }
+}
+
+.field p{
+  font-size: 1.2rem;
+}
+.field-circle{
+  width: 45%;
+  height: 0;
+  padding-bottom: 45%;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  border-radius: 100%;
+  background-color: var(--blue3);
+  opacity: .3;
 }
