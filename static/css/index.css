@@ -153,6 +153,7 @@
 }
 
 .field p{
+  max-width: 100%;
   font-size: 1.2rem;
 }
 .field-circle{
@@ -160,8 +161,8 @@
   height: 0;
   padding-bottom: 45%;
   position: absolute;
-  top: 2rem;
-  left: 2rem;
+  top: 5%;
+  left: 5%;
   border-radius: 100%;
   background-color: var(--blue3);
   opacity: .3;

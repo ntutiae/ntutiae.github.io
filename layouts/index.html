@@ -15,18 +15,15 @@
     }
 
     function Homepage(){
-        let pc = document.getElementById("spline-pc");
-        let phone = document.getElementById("spline-mobile");
+        let spline = document.getElementById("spline");
         let title = document.getElementsByClassName("title-img")[0];
         if(window.screen.width < 650 && window.screen.width > 450){
-            pc.style.display = "none";
-            phone.style.display = "inline";
+            spline.src = "https://my.spline.design/-f801562f446c553adaa89686a921be46/";  //pc
             title.style.width = "35%";
         }else if(window.screen.width < 450){
             title.style.width = "60%";
         }else{
-            pc.style.display = "inline";
-            phone.style.display = "none";
+            spline.src = "https://my.spline.design/copy-21a18c0a3c14c56c3c5e7b954bba2f8c/";  //mobile
             title.style.width = "25%";
         }
     }
@@ -49,8 +46,7 @@
     </div>
 
     <div class="spline">
-        <iframe id="spline-pc" src='https://my.spline.design/-f801562f446c553adaa89686a921be46/' frameborder='0' width='100%' height='100%'></iframe>
-        <iframe id="spline-mobile" src='https://my.spline.design/copy-21a18c0a3c14c56c3c5e7b954bba2f8c/' frameborder='0' width='100%' height='100%'></iframe>
+        <iframe id="spline" src='https://my.spline.design/-f801562f446c553adaa89686a921be46/' frameborder='0' width='100%' height='100%'></iframe>
     </div>
 
     <div id="homepage-getmore" >
@@ -155,24 +151,24 @@
     <div class="content field">
         <h1 data-aos="fade-up" data-aos-duration="1000">人工智慧應用領域</h1>
         <div class="row justify-content-center align-items-center">
-            <div class="col-lg-3 col-sm-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-lg-3 col-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
                 <div class="field-circle"></div>
-                <img src="/img/homepage/AI-BigData.png" class="p-5">
+                <img src="/img/homepage/AI-BigData.png" class="p-lg-5 p-3">
                 <p>大數據演算</p>
             </div>
-            <div class="col-lg-3 col-sm-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-lg-3 col-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
                 <div class="field-circle"></div>
-                <img src="/img/homepage/AI-MachineLearning.png" class="p-5">
+                <img src="/img/homepage/AI-MachineLearning.png" class="p-lg-5 p-3">
                 <p>機器學習</p>
             </div>
-            <div class="col-lg-3 col-sm-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-lg-3 col-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
                 <div class="field-circle"></div>
-                <img src="/img/homepage/AI-DeepLearning.png" class="p-5">
+                <img src="/img/homepage/AI-DeepLearning.png" class="p-lg-5 p-3">
                 <p>深度學習</p>
             </div>
-            <div class="col-lg-3 col-sm-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-lg-3 col-5 d-flex flex-column" data-aos="fade-up" data-aos-duration="1000">
                 <div class="field-circle"></div>
-                <img src="/img/homepage/AI-SoftwareRobot.png" class="p-5">
+                <img src="/img/homepage/AI-SoftwareRobot.png" class="p-lg-5 p-3">
                 <p>智慧型代理人</p>
             </div>
         </div>
