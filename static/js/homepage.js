@@ -6,6 +6,9 @@ function Homepage(){
     let title = document.getElementsByClassName("title-img")[0];
     // spline.style.height = window.screen.height;
     if(window.screen.width < 650 && window.screen.width > 450){
+        spline.src = "https://my.spline.design/copy-21a18c0a3c14c56c3c5e7b954bba2f8c/";  //mobile
+        title.style.width = "35%";
+    }else if(window.screen.width < 991 && window.screen.width > 650){
         spline.src = "https://my.spline.design/-f801562f446c553adaa89686a921be46/";  //pc
         title.style.width = "35%";
     }else if(window.screen.width < 450){

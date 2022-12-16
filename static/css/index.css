@@ -24,6 +24,9 @@
   width: inherit;
   height: inherit;
 }
+.spline-watermark{
+  display: none  !important;
+}
 @media (max-width: 650px){
   .title-img{
     width: 35%;
