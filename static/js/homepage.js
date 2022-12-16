@@ -4,7 +4,7 @@ let hi = "IIIIIIII         A         EEEEEEE\n   II           AAA        E      
 function Homepage(){
     let spline = document.getElementById("spline");
     let title = document.getElementsByClassName("title-img")[0];
-    spline.style.height = window.screen.height;
+    // spline.style.height = window.screen.height;
     if(window.screen.width < 650 && window.screen.width > 450){
         spline.src = "https://my.spline.design/-f801562f446c553adaa89686a921be46/";  //pc
         title.style.width = "35%";

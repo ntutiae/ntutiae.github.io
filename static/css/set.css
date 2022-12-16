@@ -18,6 +18,8 @@
 html, body{
     width: fit-content;
     height: 100%;
+    min-height: 100vh;
+    position: relative;
     scroll-behavior: smooth;
 
     color: var(--wcolor);
@@ -25,11 +27,11 @@ html, body{
     font-family: 'Montserrat', sans-seri;
     font-weight: 500;
 }
-@media (max-width: 576px){
+/* @media (max-width: 576px){
     html, body{
         font-size: 24px  !important;
     }
-}
+} */
 
 /* scrollbar */ 
 ::-webkit-scrollbar{
@@ -64,9 +66,13 @@ html, body{
     z-index: 999;
 }
 
+.navbar-brand{
+    max-width: 70%;
+}
 #navbar-brand-img{
     position: relative;
-    height: 52px;
+    width: 100%;
+    max-height: 52px;
 }
 
 .nav-link{
@@ -235,9 +241,10 @@ img{
     min-height: calc(100% - 450px);
     margin-top: 8rem;
 }
-@media (max-width: 768px){
+@media (max-width: 576px){
     .container{
-        max-width: 750px  !important;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
