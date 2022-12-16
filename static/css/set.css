@@ -18,6 +18,8 @@
 html, body{
     width: 100%;
     height: 100%;
+    min-height: 100vh;
+    position: relative;
     scroll-behavior: smooth;
 
     color: var(--wcolor);
@@ -25,11 +27,11 @@ html, body{
     font-family: 'Montserrat', sans-seri;
     font-weight: 500;
 }
-@media (max-width: 576px){
+/* @media (max-width: 576px){
     html, body{
         font-size: 24px  !important;
     }
-}
+} */
 
 /* scrollbar */ 
 ::-webkit-scrollbar{
@@ -64,9 +66,13 @@ html, body{
     z-index: 999;
 }
 
+.navbar-brand{
+    max-width: 70%;
+}
 #navbar-brand-img{
     position: relative;
-    height: 52px;
+    width: 100%;
+    max-height: 52px;
 }
 
 .nav-link{
@@ -181,22 +187,27 @@ html, body{
     .navbar-toggle.x{
         z-index: 99;
     }
+    
     .navbar-collapse{
+        display: none;
+    }
+    @keyframes navbar-open{
+        0%{ height: 91px }
+        100%{ height: 100% }
+    }
+    .navbar-collapse.show{
         width: 100%;
         height: 100%;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1;
-
-        background-color: var(--wcolor);
-        transition: all .7s ease-in-out;
-    }
-    .navbar-collapse.show{
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all .7s ease-in-out;
+
+        background-color: var(--wcolor);
+        animation: navbar-open .7s ease-in-out;
     }
     .navbar-nav,
     .dropdown-item{
@@ -211,7 +222,7 @@ html, body{
 
 /* html */
 h1, h2, h3, h4, h5, h6{
-    font-weight: bold !important;
+    font-weight: bold  !important;
 }
 h1 b, h2 b, h3 b, h4 b, h5 b, h6 b{
 }
@@ -230,12 +241,23 @@ img{
     min-height: calc(100% - 450px);
     margin-top: 8rem;
 }
+@media (max-width: 576px){
+    .container{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
 
 
 
 /* 標題 */
 .title{
     width: fit-content;
+}
+@media (max-width: 576px){
+    .title{
+        margin-left: 1rem;
+    }
 }
 .title-cn{
     font-size: 2.5rem;
@@ -274,7 +296,8 @@ img{
 /* footer */
 footer{
     width: 100%;
-    height: 450px;
+    height: fit-content;
+    min-height: 450px;
     margin-top: 5rem;
     color: var(--blue3);
     background-color: var(--wcolor);
@@ -285,4 +308,18 @@ footer hr{
 .footer-img{
     border: var(--blue3) 1.5px solid;
     border-radius: 50%;
+}
+@media (max-width: 576px){
+    footer > div{
+        padding: 3rem 0;
+    }
+    .footer-img{
+        margin-bottom: 1rem;
+    }
+    footer > div:nth-child(2){
+        padding: 1rem .55rem;
+    }
+    footer > div:nth-child(4){
+        margin: 1rem 0;
+    }
 }
