@@ -1,44 +1,6 @@
 {{ define "main" }}
 <link rel="stylesheet" href="/css/index.css">
-
-<script>
-    let hi = "IIIIIIII         A         EEEEEEE\n   II           AAA        E------\nIIIIIIII      A     A      EEEEEEE\n";
-    let feature = document.getElementsByClassName("feature");
-    let feature_input = feature.children[0];
-
-    function Feature(){
-        if(window.screen.width < 991){
-            feature_input.checked = true;
-        }else{
-            feature_input.checked = false;
-        }
-    }
-
-    function Homepage(){
-        let spline = document.getElementById("spline");
-        let title = document.getElementsByClassName("title-img")[0];
-        if(window.screen.width < 650 && window.screen.width > 450){
-            spline.src = "https://my.spline.design/-f801562f446c553adaa89686a921be46/";  //pc
-            title.style.width = "35%";
-        }else if(window.screen.width < 450){
-            title.style.width = "60%";
-        }else{
-            spline.src = "https://my.spline.design/copy-21a18c0a3c14c56c3c5e7b954bba2f8c/";  //mobile
-            title.style.width = "25%";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log(hi);
-        Feature();
-        Homepage();
-    })
-    window.addEventListener("resize", () => {
-        console.log("window width:" + window.screen.width + "; window height: " + window.screen.height)
-        Feature();
-        Homepage();
-    })
-</script>
+<script src="/js/homepage.js"></script>
 
 <div id="homepage">
     <div class="title">
@@ -46,7 +8,7 @@
     </div>
 
     <div class="spline">
-        <iframe id="spline" src='https://my.spline.design/-f801562f446c553adaa89686a921be46/' frameborder='0' width='100%' height='100%'></iframe>
+        <iframe id="spline" src='https://my.spline.design/-f801562f446c553adaa89686a921be46/' frameborder='0'></iframe>
     </div>
 
     <div id="homepage-getmore" >
@@ -82,7 +44,15 @@
                 </label>
             </div>
             <div class="row m-5" data-aos="fade-up" data-aos-duration="1000">
-                <img class="col-3 order-2 feature-img" src="/img/homepage/feature-teachers.jpg">
+                <div class="col-3 order-2 feature-img">
+                    <img src="/img/homepage/feature-teachers.svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 700">
+                        <defs></defs>
+                        <g id="two-0" transform="matrix(1 0 0 1 0 0)" opacity="1">
+                            <path transform="matrix(1 0 0 1 350 350)" id="two-466" d="M 267.965207 97.531359 C 258.39911 136.238713 286.88075 188.725018 259.905 218.086189 C 232.092692 248.357893 176.022605 224.697004 136.75895 236.873451 C 106.117707 246.375915 77.752806 264.489488 49.22375 279.16176 C 12.79375 297.897425 -18.952313 334.632343 -59.717723 338.676033 C -99.308985 342.603255 -146.76216 331.000473 -174.814721 302.787978 C -205.043451 272.386907 -187.274251 213.003237 -212.781073 178.544519 C -235.844137 147.387222 -290.00939 145.995424 -310.19695 112.902456 C -329.734999 80.874216 -324.15658 37.512235 -323.543709 0 C -322.935196 -37.245439 -322.123722 -77.728218 -306.636985 -111.606736 C -291.324311 -145.104475 -261.471681 -171.782051 -234.123456 -196.452906 C -208.426559 -219.634097 -180.7798 -245.470435 -147.826539 -256.043076 C -115.651979 -266.36588 -77.367409 -246.658278 -45.446753 -257.74134 C -4.264057 -272.040244 16.293828 -332.673908 59.576711 -337.876321 C 98.261582 -342.526073 134.934403 -311.556721 167.741936 -290.537557 C 199.965637 -269.892443 234.825057 -246.348533 254.386884 -213.455942 C 273.683436 -181.009402 270.628825 -138.520791 280.390096 -102.05365 C 289.48791 -68.065119 313.444627 -35.117445 311.263909 -0.000001 C 309.08137 35.146784 276.413891 63.345401 267.965207 97.531359 Z " fill="#8ca6b5" stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path>
+                        </g>
+                    </svg>
+                </div>
                 <label class="col-9 order-1 feature">
                     <input type="checkbox">
                     <h3>實習課程採<b>一徒二師制</b>，專業導師及企業導師聯合諮詢輔導，結合理論與實務的多元管道。</h3>
@@ -94,7 +64,14 @@
                 </label>
             </div>
             <div class="row m-5" data-aos="fade-up" data-aos-duration="1000">
-                <img class="col-3 order-1 feature-img" src="/img/homepage/feature-international.jpg">
+                <div class="col-3 order-1 feature-img">
+                    <img src="/img/homepage/feature-international.svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 700" style="transform: rotate(30deg)">
+                        <defs></defs>
+                        <g id="two-0" transform="matrix(1 0 0 1 0 0)" opacity="1"><path transform="matrix(1 0 0 1 350 350)" id="two-470" d="M 295.659022 107.611083 C 278.371729 139.817531 227.622033 143.426513 206.380754 173.174014 C 182.356213 206.819355 198.277716 263.543131 169.021421 292.753689 C 141.803311 319.929247 95.842443 322.249066 57.718208 327.336227 C 20.172522 332.346189 -21.616874 336.756027 -56.990887 323.211379 C -92.101189 309.767707 -119.105478 277.974768 -144.463392 250.217934 C -166.55385 226.037665 -175.767535 189.567554 -200.923247 168.594622 C -233.473605 141.456594 -301.525755 154.791012 -317.958444 115.727409 C -333.723224 78.251551 -279.042734 40.518902 -275.698087 0 C -272.723353 -36.037582 -298.096507 -71.604903 -295.898298 -107.698173 C -293.561331 -146.069768 -289.264776 -193.029564 -260.68677 -218.742172 C -230.587038 -245.823927 -177.123157 -226.09535 -140.47578 -243.311188 C -107.731738 -258.693356 -90.340252 -304.193151 -55.00801 -311.965927 C -20.005678 -319.666125 15.890494 -295.479581 50.388081 -285.765013 C 82.679014 -276.671841 115.575832 -265.98656 147.343277 -255.206044 C 183.713339 -242.863597 234.871147 -246.999704 256.712844 -215.407654 C 279.70483 -182.151814 246.341559 -132.338945 255.244492 -92.901398 C 262.763906 -59.592459 293.894231 -33.438501 300.814757 -0.000001 C 308.020083 34.814592 312.473191 76.286073 295.659022 107.611083 Z " fill="#8ca6b5" stroke="undefined" stroke-width="1" stroke-opacity="1" fill-opacity="1" visibility="visible" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4"></path>
+                        </g>
+                    </svg>
+                </div>
                 <label class="col-9 order-2 feature">
                     <input type="checkbox">
                     <h3>及早培養<b>國際移動力</b>，<br>洞察先機並精準與市場接軌。</h3>
