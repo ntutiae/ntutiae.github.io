@@ -254,6 +254,11 @@ img{
 .title{
     width: fit-content;
 }
+@media (max-width: 576px){
+    .title{
+        margin-left: 1rem;
+    }
+}
 .title-cn{
     font-size: 2.5rem;
 }
@@ -308,7 +313,7 @@ footer hr{
     footer > div{
         padding: 3rem 0;
     }
-    footer > div:nth-child(1){
+    .footer-img{
         margin-bottom: 1rem;
     }
     footer > div:nth-child(2){

@@ -13,7 +13,7 @@ function Homepage(){
         title.style.width = "60%";
     }else{
         spline.src = "https://my.spline.design/-f801562f446c553adaa89686a921be46/";  //pc
-        title.style.width = "25%";
+        title.style.width = "35%";
     }
 }
 
