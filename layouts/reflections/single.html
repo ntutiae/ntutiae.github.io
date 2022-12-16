@@ -1,8 +1,7 @@
 {{ define "main" }}
-<link rel="stylesheet" href="/css/set.css">
 <link rel="stylesheet" href="/css/reflections.css">
-<script src="/js/set.js"></script>
 <script src="/js/reflections.js"></script>
+
 <div class="container" id="reflections-view">
 
     <div class="row mb-3 title">
@@ -12,17 +11,17 @@
 
     {{ partial "reflection_menu.html" . }}
 
-    <div class="row" id="reflections-iae2">
+    <div class="row" id="reflections">
 
         {{ range .Params.List }}
-        <div class="col-lg-4 col-md-6 my-3 reflections-vid">
+        <div class="col-lg-4 col-md-12 my-3 reflections-vid">
             <a class="vid-block" href="#r{{ .id }}">
                 <p class="m-1">{{ .id }} {{ .name }}</p>
                 <img class="w-100" src="https://img.youtube.com/vi/{{ .video }}/maxresdefault.jpg" data-bs-toggle="modal" data-bs-target="#r{{ .id }}">
             </a>
 
             <div class="modal fade" id="r{{ .id }}" tabindex="-1" aria-labelledby="r{{ .id }}" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="r{{ .id }}">{{ .id }} {{.name }}</h5>
@@ -44,7 +43,7 @@
 </div>
 
 
-<div class="container reflections-result" id="Footer">
+<div class="container reflections-result">
 
     <div class="row mb-5 title">
         <h1 class="m-0 title-cn">學習心得影片</h1>

@@ -1,4 +1,8 @@
 /* 師資介紹 */
+.teacher{
+    text-align: start;
+}
+
 .teacher-group{
     height: 18rem;
     
@@ -42,7 +46,7 @@
     visibility: hidden;
     opacity: 0;
     color: var(--blue3);
-    background-color: var(--red3);
+    background-color: var(--gray4);
 }
 .teacher-info-icon:hover + .hover-text{
     visibility: visible;

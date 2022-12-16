@@ -3,26 +3,30 @@
         <a class="navbar-brand" href="/">
             <img src="/img/navbar-brand.png" rel="臺北科技大學 智慧自動化工程科" id="navbar-brand-img">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggle x collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="nav-icon-bar"></span>
+            <span class="nav-icon-bar"></span>
+            <span class="nav-icon-bar"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
+                {{ $link := .RelPermalink | absURL }}
                 {{ range .Site.Menus.main }}
                 {{ if .HasChildren }}
+                
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{{ .URL }}" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ if and (eq $link (.URL | absURL)) .URL }}active{{ end }}" href="{{ .URL }}" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ .Name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         {{ range .Children }}
-                        <li><a class="dropdown-item active" href="{{ .URL }}">{{ .Name }}</a></li>
+                        <li><a class="dropdown-item  {{ if eq $link (.URL | absURL) }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a></li>
                         {{ end }}
                     </ul>
                 </li>
                 {{ else }}
-                <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+                <li class="nav-item"><a class="nav-link {{ if eq $link (.URL | absURL) }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a></li>
                 {{ end }}
                 {{ end }}
             </ul>
@@ -34,6 +38,7 @@
             </select>
             -->
         </div>
+    </div>
 </nav>
 
 
