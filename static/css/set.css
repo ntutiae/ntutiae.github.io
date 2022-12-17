@@ -24,7 +24,7 @@ html, body{
 
     color: var(--wcolor);
     font-size: 16px;
-    font-family: 'Montserrat', sans-seri;
+    font-family: 'Montserrat', Microsoft JhengHei, sans-seri;
     font-weight: 500;
 }
 /* @media (max-width: 576px){

@@ -1,16 +1,22 @@
 /* 師資介紹 */
+.teacher-group{
+    height: fit-content;
+}
 .teacher{
     text-align: start;
 }
-
-.teacher-group{
-    height: 18rem;
-    
-    /* border: 1.5px solid rgba(0, 0, 0, .3);
-    border-radius: 1rem; */
+@media (max-width: 576px){
+    .teacher{
+        font-size: .8rem;
+    }
+    .teacher-group img{
+        margin-bottom: 1rem;
+    }
 }
-.teacher-group img{
-    height: 90%;
+@media (min-width: 576px){
+    .teacher-group img{
+        height: 90%;
+    }
 }
 .teacher > p{
     color: var(--blue2);
