@@ -1,5 +1,5 @@
 
-let hi = "IIIIIIII         A         EEEEEEE\n   II           AAA        E      \nIIIIIIII      A     A      EEEEEEE\n";
+let hi = "IIIIIII       A       EEEEEEEE\n   I         A A      E\n   I        A   A     EEEEEEEE\n   I       AAAAAAA    E\nIIIIIII   A       A   EEEEEEEE";
 
 function Homepage(){
     let spline = document.getElementById("spline");

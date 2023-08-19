@@ -9,7 +9,7 @@
             <span class="nav-icon-bar"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 {{ $link := .RelPermalink | absURL }}
                 {{ range .Site.Menus.main }}
@@ -31,6 +31,9 @@
                 {{ end }}
             </ul>
 
+            <div>
+                <input id="mode-toggle" type="checkbox">
+            </div>
             <!--
             <select class="nav-select">
                 <option>中文</option>

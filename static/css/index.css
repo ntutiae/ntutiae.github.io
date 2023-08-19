@@ -208,3 +208,6 @@
   background-color: var(--blue3);
   opacity: .3;
 }
+.field img{
+  color: var(--wcolor);
+}
