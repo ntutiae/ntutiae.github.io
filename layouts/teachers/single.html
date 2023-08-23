@@ -5,7 +5,7 @@
         <h1 class="m-0 title-cn">師資介紹</h1>
         <p class="title-en" style="margin-left: -3rem">Teachers</p>
     </div>
-
+    <div class="d-flex flex-column">
     {{ range .Site.Data.teachers }}
     <div class="m-0 content">
         <!--重複-->
@@ -84,10 +84,10 @@
                 </div>
             </div>
         </div>
-
-        <hr class="w-100"/>
     </div>
+    <hr class="w-100"/>
     {{ end }}
+</div>
 <!-- 學歷：mortarboard
     研究領域：book
     研究室／實驗室：house

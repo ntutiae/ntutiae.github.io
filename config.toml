@@ -40,7 +40,7 @@ hasCJKLanguage = true
     parent = "works"
     url = "/reflections/111-2/5"
 
-# [[menu.main]]
-#     name = "常見問題"
-#     weight = 30
-#     url = "/faq/"
+[[menu.main]]
+    name = "常見問題"
+    weight = 30
+    url = "/faq/"

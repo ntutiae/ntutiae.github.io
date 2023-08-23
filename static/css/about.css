@@ -4,8 +4,7 @@
 }
 
 .teacher-group{
-    height: 18rem;
-    
+    height: max-content;
     /* border: 1.5px solid rgba(0, 0, 0, .3);
     border-radius: 1rem; */
 }
