@@ -19,8 +19,10 @@
     opacity: 0;
 }
 
-.faq-ans a{
-    margin-top: .3rem;
+.faq-link{
+    margin-left: .5rem;
+    margin-top: 1rem;
+    user-select: none;
     transition: all .3s ease-in-out;
 }
 .faq-ans a:hover{
