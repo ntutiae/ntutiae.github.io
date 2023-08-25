@@ -38,7 +38,7 @@ hasCJKLanguage = true
 [[menu.main]]
     name = "學習心得影片"
     parent = "works"
-    url = "/reflections/111-2/5"
+    url = "/reflections/"
 
 [[menu.main]]
     name = "常見問題"
