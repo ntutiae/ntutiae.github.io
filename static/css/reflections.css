@@ -69,7 +69,3 @@
         border-radius: 0;
     }    
 }
-
-.disabled {
-    pointer-events: none;
-}

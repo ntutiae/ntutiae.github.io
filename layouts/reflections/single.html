@@ -1,6 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <body>
+{{ define "main" }}
+<link rel="stylesheet" href="/css/reflections.css">
+<script src="/js/reflections.js"></script>
+
+<div class="container" id="reflections-view">
+
+    <div class="row mb-3 title">
+        <h1 class="m-0 title-cn">學習心得影片</h1>
+        <p class="title-en" style="margin-left: -4rem">Reflections</p>
+    </div>
+
+    {{ partial "reflection_menu.html" . }}
+
+    <div class="row" id="reflections">
+
         {{ range .Params.List }}
         {{ if not .draft }}
         <div class="col-lg-4 col-md-12 my-3 reflections-vid">
@@ -29,5 +41,16 @@
         </div>
         {{ end }}
         {{ end }}
-    </body>
-</html>
+    </div>
+</div>
+
+
+<div class="container reflections-result">
+
+    <div class="row mb-5 title">
+        <h1 class="m-0 title-cn">學習心得影片</h1>
+        <p class="title-en" style="margin-left: -10rem">Reflections</p>
+    </div>
+
+</div>
+{{ end }}

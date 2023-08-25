@@ -1,9 +1,0 @@
-{{ $link := .RelPermalink }}
-<div class="d-flex flex-row justify-content-center">
-  {{ range .CurrentSection.Pages }}
-  <a href="javascript: summon_vid('{{ .RelPermalink }}')"
-    id="grade"
-    {{ if eq $link .RelPermalink }}class="mytabs-active"{{ end }}
-    >{{ .Title }}</a>
-  {{ end }}
-</div>
