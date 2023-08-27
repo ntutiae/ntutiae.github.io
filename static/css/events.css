@@ -59,7 +59,7 @@
 
 
 .event-page-title p{
-    color: var(--blue2)
+    color: var(--blue2);
 }
 
 .event-page-content{
@@ -73,23 +73,36 @@
 
 .event-page-content h2{
     margin: 1.5rem 0 0.5rem 0;
+    line-height: 150%;
     align-self: baseline;
 }
 .event-page-content p,
 .event-page-content blockquote{
     width: 100%;
+    line-height: 300%;
 }
 .event-page-content img{
-    width: 100%;
+    width: 60%;
     max-height: 50rem;
 }
 .event-page-content figure,
 .event-page-content p>img{
-    width: 103%;
+    width: 75%;
     margin-bottom: 1.3rem;
+}
+.event-page-content p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 .event-page-content figure{
     margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .event-page-content figcaption > p{
     margin: 0 0 1rem 0;
@@ -108,6 +121,8 @@
 }
 .event-page-content blockquote li p{
     margin: 0;
+    line-height: 150%;
+    display: inline-block;
 }
 
 /* .comment-name{

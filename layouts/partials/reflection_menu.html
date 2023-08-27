@@ -1,13 +1,14 @@
 <div class="nav justify-content-center mytabs flex flex-column" id="reflections-tabs">
   <!-- <a href="rules.html">規則</a> -->
-  {{ $link := .RelPermalink }}
+  {{ $year_link := .Parent.RelPermalink }}
   <div class="d-flex flex-row justify-content-center">
   {{ range .FirstSection.Pages.Reverse }}
   <a href="{{(index (.Pages) 0).RelPermalink}}"
-     {{ if eq $link .RelPermalink }}class="mytabs-active"{{ end }}
+     {{ if eq $year_link .RelPermalink }}class="mytabs-active"{{ end }}
      >{{ .Title }}</a>
   {{ end }}
 </div>
+{{ $link := .RelPermalink }}
 <div class="d-flex flex-row justify-content-center">
   {{ range .CurrentSection.Pages }}
   <a href="{{ .RelPermalink }}"

@@ -25,11 +25,6 @@ hasCJKLanguage = true
     parent = "about"
     url = "/about/teachers/"
 
-# [[menu.main]]
-#     name = "活動總覽"
-#     weight = 10
-#     url = "/events/"
-
 [[menu.main]]
     name = "學生成果"
     weight = 20
@@ -44,3 +39,8 @@ hasCJKLanguage = true
     name = "常見問題"
     weight = 30
     url = "/faq/"
+
+[[menu.main]]
+    name = "活動總覽"
+    weight = 40
+    url = "/events/"
