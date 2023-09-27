@@ -44,3 +44,8 @@ hasCJKLanguage = true
     name = "活動總覽"
     weight = 40
     url = "/events/"
+
+[[menu.main]]
+    name = "科辦借用"
+    weight = 50
+    url = "/borrowing/"
