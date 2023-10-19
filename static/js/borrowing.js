@@ -206,7 +206,6 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
     refresh_btn.onclick = refresh;
     
     addEventListener("resize", (event) => {
-    	console.log( is_mobile() );
     	if(mobile !== is_mobile()) {
     	    mobile = !mobile;
     	    if(mobile) {
@@ -263,5 +262,5 @@ function sleep(time) {
 }
 
 function is_mobile() {
-    return window.screen.width < 1200;
+    return document.body.offsetWidth < 1200;
 }
