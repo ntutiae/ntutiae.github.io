@@ -262,5 +262,5 @@ function sleep(time) {
 }
 
 function is_mobile() {
-    return document.body.offsetWidth < 1200;
+    return document.body.offsetWidth < 1190;
 }
