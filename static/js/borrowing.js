@@ -57,8 +57,24 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
     const is_holiday = (dateStr) => Boolean( holiday.filter(d => d.date === dateStr ).length );
     const get_reason = (dateStr) => holiday.filter(d => d.date === dateStr )[0]["description"];
 
+    let interface = document.querySelector("#interface");
     let base = document.querySelector(".calendar");
     let mobile = is_mobile();
+
+    const interface_setting = () => {
+        if(!mobile) return;
+        interface.style = "";
+        console.log(base.scrollWidth * 0.65);
+        if(interface.offsetWidth > (base.scrollWidth * 0.65)) {
+            interface.style = `width: ${(base.scrollWidth * 0.78)}px;`;
+        }
+        else {
+            interface.style = "";
+        }
+
+        let err = new Error();
+        throw(err);
+    }
 
     const get_formURL = (date, time) => {
         return `https://docs.google.com/forms/d/e/1FAIpQLSeWdLOfKln8piSEORmrpXM86wGsx6HPtVC1OEWbQiYo7GDlNw/viewform?usp=pp_url&entry.540117387=${date}&entry.37487545=${time}`;
@@ -115,7 +131,7 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
         return ["idle", "閒置"];
     }
 
-    const date_change = (loading) => {
+    const date_change = (loading, event=null) => {
         let dates = [...base.querySelectorAll(".date")];
         dates.forEach(ele => ele.classList.add("hide"));
         setTimeout(() => dates.forEach(ele => ele.remove()), 201);
@@ -180,6 +196,7 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
                 ele.classList.add("show");
                 base.appendChild(ele);
             }
+            if(!event) interface_setting();
         }, 200);
     }
 
@@ -205,19 +222,19 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
     forward_btn.onclick = forward_month;
     refresh_btn.onclick = refresh;
     
-    addEventListener("resize", (event) => {
+    addEventListener("resize", (_) => {
     	if(mobile !== is_mobile()) {
     	    mobile = !mobile;
     	    if(mobile) {
     	    	base.style = "transform-origin: top left;scale: 0.7;";
-    	    	document.querySelector("#interface").style = "";
     	    }
     	    else {
     	        base.style = "";
     	    	document.querySelector("#interface").style = "width: 90%;";
     	    }
-    	    date_change();
+    	    date_change(null, "change");
     	}
+        else interface_setting();
     });
 
     date_change( document.querySelector(".foot") );
@@ -262,5 +279,5 @@ function sleep(time) {
 }
 
 function is_mobile() {
-    return document.body.offsetWidth < 1190;
+    return document.body.offsetWidth < 1200;
 }
