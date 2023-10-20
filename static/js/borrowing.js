@@ -71,9 +71,6 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
         else {
             interface.style = "";
         }
-
-        let err = new Error();
-        throw(err);
     }
 
     const get_formURL = (date, time) => {
@@ -233,6 +230,7 @@ function set_dat(year, month, text_base, holiday, back_btn, forward_btn, refresh
     	    	document.querySelector("#interface").style = "width: 90%;";
     	    }
     	    date_change(null, "change");
+            interface_setting();
     	}
         else interface_setting();
     });
