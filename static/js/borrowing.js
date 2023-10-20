@@ -135,6 +135,8 @@ function main(holiday, record) {
         return => null
     */
     const dateChange = async (loading, doNotRefresh=null) => {
+        mobile = isMobile();
+
         //選取目前在日曆裡的日期元素 播放物件消失動畫
         let dates = [...calendar.querySelectorAll(".date")];
         dates.forEach(ele => ele.classList.add("hide"));
