@@ -20,9 +20,12 @@ let { year, month } = dateUtil.getDateJSON();
 
     let calendarData = await request.GET(`https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year}.json`, null, true);
 
-    if(month < 3) calendarData = calendarData.concat( await request.GET(`https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year - 1}.json`, null, true) ); //若月份 < 3 合併前一年的假日資料
-    if(month > 10) calendarData = calendarData.concat( await request.GET(`https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year + 1}.json`, null, true) ); //若月份 > 10 合併後一年的假日資料
-    let holiday = calendarData.filter(d => d.isHoliday || d.week === "五" || d.week === "六" || d.week === "日");
+    /* 若月份 < 3 合併前一年的假日資料 */
+    if(month < 3) calendarData = calendarData.concat( await request.GET(`https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year - 1}.json`, null, true) );
+
+    /* 若月份 > 10 合併後一年的假日資料 */
+    if(month > 10) calendarData = calendarData.concat( await request.GET(`https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year + 1}.json`, null, true) );
+    
     /*過濾出所有不可借用日期 ex. 
     holiday => [
         {   
@@ -34,8 +37,8 @@ let { year, month } = dateUtil.getDateJSON();
         ......
     ]
     */
+    let holiday = calendarData.filter(d => d.isHoliday || d.week === "五" || d.week === "六" || d.week === "日");
 
-    let record = await request.GET(API, null, true);
     /*取得API(借用紀錄 試算表) 資料 ex.
         record => [
             [
@@ -48,17 +51,18 @@ let { year, month } = dateUtil.getDateJSON();
             ]
         ]
     */
+    let record = await request.GET(API, null, true);
 
-
+    /* 執行 main 區 */
     main(holiday, record);
 })();
 
 function main(holiday, record) {
-    //dateStr => YYYYMMDD
+    //dateStr => YYYYMMDD String
     const isHoliday = (dateStr) => Boolean( holiday.filter(d => d.date === dateStr ).length );
     const getReason = (dateStr) => holiday.filter(d => d.date === dateStr )[0]["description"];
 
-    //變更按鈕狀態
+    /* 更新按鈕狀態 */
     const buttonChange = () => {
         /* 設定按鈕為可被點擊 */
         forwardBtn.disabled = false; 
@@ -125,7 +129,7 @@ function main(holiday, record) {
         
         elementManager.createElement({ //創建新元素
             tag: "a",
-            classes: [ "status", status[0] ],
+            classes: [ "status", status[0] ], //status[0] => idle || apply || used || waiting || complate
             innerHTML: `${timeStr.slice(0, 2)} ${status[1]}`, //`${上午 || 下午 || 晚上} ${閒置 || 審核中 || 已佔用 || 缺照片 || 完成}`
             href: status[0] === "idle" ? getFormURL(urlDateStr, timeStr) : null, //若為閒置 則設定點擊後跳轉到表單
             target: "_blank",
@@ -169,10 +173,10 @@ function main(holiday, record) {
         let monthDates = dateUtil.getDaysInMonth(year, month);
         for(let monthDate of monthDates) { //尋一遍日期 null, null, 1, 2, 3......
 
-            //獲取日期字串 dateStr => YYYYMMDD
+            /* 獲取日期字串 dateStr => YYYYMMDD */
             let dateStr = dateUtil?.getDateStr( dateUtil.getDateFromNumber(year, month, monthDate) );
 
-            //生成日期元素
+            /* 生成日期元素 */
             let dateBase = elementManager.createElement({
                 tag: "span",
                 classes: [ 
@@ -183,7 +187,7 @@ function main(holiday, record) {
                 style: !mobile ? "aspect-ratio: 1.2;" : null, //日期元素 電腦與移動端不同
                 childs: [ //子元素列表
                     
-                    //若此日期不為 null 則生成此元素 日期標題 ex. 1 || 2 || 3 ......
+                    /* 若此日期不為 null 則生成此元素 日期標題 ex. 1 || 2 || 3 ...... */
                     (monthDate) ? elementManager.createElement({
                         tag: "span",
                         classes: ["title"],
@@ -191,7 +195,7 @@ function main(holiday, record) {
                         innerHTML: String( monthDate ),
                     }) : null,
 
-                    //若今天為假日 則生成此元素 假日原由 ex. 中秋節...... 國慶日......
+                    /* 若今天為假日 則生成此元素 假日原由 ex. 中秋節...... 國慶日...... */
                     isHoliday( dateStr ) ? elementManager.createElement({
                         tag: "div",
                         classes: ["content"],
