@@ -205,7 +205,7 @@ function main(holiday, record) {
                 appendTo: calendar //將此 元素(dateBase) 添加到 日曆(calendar) 中
             })
 
-            if(isHoliday( dateStr )) continue; //若不為假日 則繼續執行以下代碼
+            if(isHoliday( dateStr )) continue; //若不為假日 則繼續執行
 
             /* 生成今日借用狀態列表 */
 
