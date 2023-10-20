@@ -112,9 +112,8 @@ function main(holiday, record) {
         /* 獲取指定日期、時段狀態 
             dateStr => YYYYMMDD
             timeStr.silse(0, 2) => 上午 || 下午 || 晚上
-            status => ["idle", "閒置"] || ["apply", "審核中"] || ["used", "已占用"] || ["waiting", "缺照片"] || ["complate", "完成"] 
             
-            return => null
+            status => ["idle", "閒置"] || ["apply", "審核中"] || ["used", "已占用"] || ["waiting", "缺照片"] || ["complate", "完成"] 
         */
         let status = getStatus( dateStr, timeStr.slice(0, 2) );
         
