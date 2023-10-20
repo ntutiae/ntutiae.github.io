@@ -1,16 +1,16 @@
 /* 取得日期物件的 年 月 日 */
 export function getDateJSON(date = new Date()) {
-    let year = date?.getFullYear();
-    let month = date?.getMonth() + 1;
-    let monthDate = date?.getDate();
+  const year = date?.getFullYear()
+  const month = date?.getMonth() + 1
+  const monthDate = date?.getDate()
 
-    return { year, month, monthDate }
+  return { year, month, monthDate }
 }
 
 /* 從數字取得指定日期物件 */
 export function getDateFromNumber(year, month, monthDate) {
-    if(year === null || month === null || monthDate === null) return null;
-    return new Date(year, month-1, monthDate);
+  if (year === null || month === null || monthDate === null) return null
+  return new Date(year, month - 1, monthDate)
 }
 
 /* 回傳日期字串 
@@ -19,13 +19,15 @@ export function getDateFromNumber(year, month, monthDate) {
    可設定char
    customChar YYYY{char}MM{char}DD
 */
-export function getDateStr(date = new Date(), char = "") {
-    let { year, month, monthDate } = getDateJSON( date );
+export function getDateStr(date = new Date(), char = '') {
+  const { year, month, monthDate } = getDateJSON(date)
 
-    return `${year}${char}${String(month).padStart(2, "0")}${char}${String(monthDate).padStart(2, "0")}`;
+  return `${year}${char}${String(month).padStart(2, '0')}${char}${String(
+    monthDate
+  ).padStart(2, '0')}`
 }
 
-/*取得此月的日曆 ex.
+/* 取得此月的日曆 ex.
     ----------------------------------------
     Sun.  Mon.  Tue.  Wed.  Thu.  Fri.  Sat.
                 1     2     3     4     5
@@ -39,20 +41,22 @@ export function getDateStr(date = new Date(), char = "") {
     (兩個 null 填充前面兩個空日期)
 */
 export function getDaysInMonth(year, month) {
-    month -= 1;
+  month -= 1
 
-    let result = [];
-    let num = 1;
-    while(new Date(year, month, num).getMonth() === new Date(year, month).getMonth()) {
-        if(!result.length) {
-            let cache = new Date(year, month, num).getDay();
-            while(cache) {
-                result.push(null);
-                cache -= 1;
-            }
-        }
-        result.push(num);
-        num++;
+  const result = []
+  let num = 1
+  while (
+    new Date(year, month, num).getMonth() === new Date(year, month).getMonth()
+  ) {
+    if (!result.length) {
+      let cache = new Date(year, month, num).getDay()
+      while (cache) {
+        result.push(null)
+        cache -= 1
+      }
     }
-    return result;
+    result.push(num)
+    num++
+  }
+  return result
 }

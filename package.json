@@ -1,0 +1,21 @@
+{
+  "name": "ntutiae.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ntutiae/ntutiae.github.io",
+  "author": "wancat <wancat@wancat.cc>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .js,.vue static/js",
+    "format": "prettier --write static/js/**/*.{js,vue}"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3"
+  }
+}
