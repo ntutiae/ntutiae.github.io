@@ -9,8 +9,14 @@ let calendar = document.querySelector(".calendar");
 let { year, month } = dateUtil.getDateJSON();
 
 (async () => {
-    if(!isMobile()) document.querySelector("#interface").style = "width: 90%;"; //非移動端 寬度90%
-    else calendar.style = "transform-origin: top left;scale: 0.7;"; //移動端將日曆縮小 x0.7
+    /* 
+        電腦端 ->
+            HTMLElement #interface 日曆介面 寬度鎖定90%
+        移動端 -> 
+            日曆尺寸縮小 x0.7
+    */
+    if(!isMobile()) document.querySelector("#interface").style = "width: 90%;";
+    else calendar.style = "transform-origin: top left;scale: 0.7;";
 
     let calendarData = await request.GET(`https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year}.json`, null, true);
 
