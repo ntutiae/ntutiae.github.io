@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const hi =
   'IIIIIIII         A         EEEEEEE\n   II           AAA        E      \nIIIIIIII      A     A      EEEEEEE\n'
 
