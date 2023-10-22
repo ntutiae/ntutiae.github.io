@@ -1,5 +1,5 @@
-import CalendarDateView from './borrowing-dateView.js'
-import CalendarHeaderView from './borrowing-headerView.js'
+import CalendarDateView from './calendar-dateView.js'
+import CalendarHeaderView from './calendar-headerView.js'
 import isMobile from './device-manager.js'
 import * as elementManager from './element-manager.js'
 

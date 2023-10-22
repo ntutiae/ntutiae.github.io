@@ -1,6 +1,6 @@
 import * as request from './request.js'
 import * as dateUtil from './date-util.js'
-import CalendarStatusModel from './borrowing-statusModel.js'
+import CalendarStatusModel from './calendar-statusModel.js'
 
 const getTaiwanCalendarUrl = (year) =>
   `https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year}.json`

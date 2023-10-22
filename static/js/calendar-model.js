@@ -1,6 +1,6 @@
 import * as request from './request.js'
 import * as dateUtil from './date-util.js'
-import CalendarDayModel from './borrowing-dayModel.js'
+import CalendarDayModel from './calendar-dayModel.js'
 
 const API =
   'https://script.google.com/macros/s/AKfycbxbhboysUkD4bZCO9qmgPZbFCjC8-5rEHnFDhneVDDJ1AnFV4TqNN5q-tUoUlBgUeVgKw/exec'
