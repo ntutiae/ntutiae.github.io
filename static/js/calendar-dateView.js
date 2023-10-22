@@ -62,6 +62,7 @@ export default class CalendarDateView {
           ? CalendarDateView.getFormURL(urlDateStr, period)
           : null,
       target: '_blank',
+      rel: 'noopener noreferrer',
 
       appendTo: this.element,
     })
