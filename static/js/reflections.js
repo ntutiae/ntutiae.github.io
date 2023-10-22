@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-undef */
 const videos = document.getElementsByClassName('reflections-vid')
 const modal = document.getElementsByClassName('modal')
 const closebtn = document.getElementsByClassName('modal-close')
