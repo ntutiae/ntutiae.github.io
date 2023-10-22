@@ -200,7 +200,7 @@
     }
 }
 
-.show {
+.calendar .show {
     animation: show .6s;
 }
 
@@ -215,7 +215,7 @@
     }
 }
 
-.hide {
+.calendar .hide {
     animation: hide .6s;
 }
 

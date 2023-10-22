@@ -1,8 +1,10 @@
 /* 取得日期物件的 年 月 日 */
 export function getDateJSON(date = new Date()) {
-  const year = date?.getFullYear()
-  const month = date?.getMonth() + 1
-  const monthDate = date?.getDate()
+  if (!(date instanceof Date)) return null
+
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const monthDate = date.getDate()
 
   return { year, month, monthDate }
 }
@@ -27,6 +29,11 @@ export function getDateStr(date = new Date(), char = '') {
   ).padStart(2, '0')}`
 }
 
+export function getDateStrFromNumber(year, month, monthDate, char = '') {
+  if (year === null || month === null || monthDate === null) return null
+  return getDateStr(new Date(year, month - 1, monthDate), char)
+}
+
 /* 取得此月的日曆 ex.
     ----------------------------------------
     Sun.  Mon.  Tue.  Wed.  Thu.  Fri.  Sat.
@@ -41,15 +48,16 @@ export function getDateStr(date = new Date(), char = '') {
     (兩個 null 填充前面兩個空日期)
 */
 export function getDaysInMonth(year, month) {
-  month -= 1
+  const realMonth = month - 1
 
   const result = []
   let num = 1
   while (
-    new Date(year, month, num).getMonth() === new Date(year, month).getMonth()
+    new Date(year, realMonth, num).getMonth() ===
+    new Date(year, realMonth).getMonth()
   ) {
     if (!result.length) {
-      let cache = new Date(year, month, num).getDay()
+      let cache = new Date(year, realMonth, num).getDay()
       while (cache) {
         result.push(null)
         cache -= 1
