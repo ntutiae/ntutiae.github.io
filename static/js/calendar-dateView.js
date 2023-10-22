@@ -6,7 +6,7 @@ export default class CalendarDateView {
     this.mobile = isMobile()
     this.calendar = document.querySelector('.calendar')
 
-    this.ele = elementManager.createElement({
+    this.element = elementManager.createElement({
       tag: 'span',
       classes: ['date'],
       style: !this.mobile ? 'aspect-ratio: 1.2;' : null,
@@ -14,11 +14,11 @@ export default class CalendarDateView {
   }
 
   classAdd(className) {
-    this.ele.classList.add(className)
+    this.element.classList.add(className)
   }
 
   appendChild(child) {
-    this.ele.appendChild(child)
+    this.element.appendChild(child)
   }
 
   setTitle(monthDate) {
@@ -27,7 +27,7 @@ export default class CalendarDateView {
       classes: ['title'],
       style: !this.mobile ? 'margin-right: auto;padding-left: 10px;' : null,
       innerHTML: String(monthDate),
-      appendTo: this.ele,
+      appendTo: this.element,
     })
 
     this.classAdd('show')
@@ -38,7 +38,7 @@ export default class CalendarDateView {
       tag: 'div',
       classes: ['content'],
       innerHTML: reason,
-      appendTo: this.ele,
+      appendTo: this.element,
     })
 
     this.classAdd('disabled-date')
@@ -63,12 +63,12 @@ export default class CalendarDateView {
           : null,
       target: '_blank',
 
-      appendTo: this.ele,
+      appendTo: this.element,
     })
   }
 
   appendToCalendar() {
-    this.calendar.appendChild(this.ele)
+    this.calendar.appendChild(this.element)
   }
 
   static getTimeName(timeId) {
