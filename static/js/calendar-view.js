@@ -10,31 +10,35 @@ export default class CalendarView {
     this.mobile = isMobile()
 
     this.header = new CalendarHeaderView()
-    this.backBtn = null
-    this.forwardBtn = null
 
-    this.month = null
-    this.dayList = null
-
-    if (!this.mobile) this.computerSetup()
-    else this.mobileSetup()
+    this.deviceSetup()
   }
 
   static build() {
     const calendar = document.querySelector('.calendar')
     const calendarInterface = document.querySelector('#interface')
 
-    const result = new CalendarView(calendar, calendarInterface)
+    const view = new CalendarView(calendar, calendarInterface)
+    view.header.render()
 
-    return result
+    return view
+  }
+
+  deviceSetup() {
+    this.mobile = isMobile()
+
+    if (!this.mobile) this.computerSetup()
+    else this.mobileSetup()
   }
 
   computerSetup() {
+    this.calendar.style = ''
     this.calendarInterface.style = 'width: 90%'
   }
 
   mobileSetup() {
     this.calendar.style = 'transform-origin: top left;scale: 0.7;'
+    this.calendarInterface.style = ''
   }
 
   async putLoading() {
@@ -57,11 +61,9 @@ export default class CalendarView {
     await CalendarView.removeDates()
     CalendarView.removeLoading()
 
-    if (!this.header.exist) this.header.render(month)
     this.header.setMonth(month)
-
     dayList.forEach((day) => {
-      const date = new CalendarDateView()
+      const date = new CalendarDateView(this)
 
       if (day.type === 'empty') date.classAdd('hidden')
 

@@ -16,7 +16,6 @@ export default class CalendarDayModel {
       monthDate,
       '-'
     )
-
     this.setDayType(date)
   }
 

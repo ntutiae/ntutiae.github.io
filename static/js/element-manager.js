@@ -17,8 +17,8 @@ export function createElement({
   childs.filter((c) => c).forEach((c) => result.appendChild(c))
 
   if (innerHTML) result.innerHTML = innerHTML
-  if (appendTo) appendTo.appendChild(result)
-  if (onclick) result.onclick = onclick
+  if (appendTo instanceof HTMLElement) appendTo.appendChild(result)
+  if (onclick instanceof Function) result.onclick = onclick
 
   return result
 }

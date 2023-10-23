@@ -1,9 +1,6 @@
-import * as request from './request.js'
 import * as dateUtil from './date-util.js'
 import CalendarDayModel from './calendar-dayModel.js'
-
-const API =
-  'https://script.google.com/macros/s/AKfycbxbhboysUkD4bZCO9qmgPZbFCjC8-5rEHnFDhneVDDJ1AnFV4TqNN5q-tUoUlBgUeVgKw/exec'
+import CalendarRecordModel from './calendar-recordModel.js'
 
 export default class CalendarModel {
   constructor(holidays, year, month, recordList) {
@@ -18,7 +15,7 @@ export default class CalendarModel {
   static async build() {
     const { year, month } = dateUtil.getDateJSON()
 
-    const recordList = await CalendarModel.getRecordList()
+    const recordList = await CalendarRecordModel.build()
 
     const holidays = await CalendarDayModel.getHolidayList(year, month)
 
@@ -27,14 +24,15 @@ export default class CalendarModel {
     return result
   }
 
+  getDateStr(monthDate) {
+    return dateUtil.getDateStrFromNumber(this.year, this.month, monthDate)
+  }
+
   getDayList() {
     return dateUtil
       .getDaysInMonth(this.year, this.month)
       .map((monthDate) =>
-        this.getDayStatus(
-          dateUtil.getDateStrFromNumber(this.year, this.month, monthDate),
-          monthDate
-        )
+        this.getDayStatus(this.getDateStr(monthDate), monthDate)
       )
   }
 
@@ -52,11 +50,12 @@ export default class CalendarModel {
   }
 
   async refresh() {
-    const { year, month } = dateUtil.getDateJSON()
+    const recordList = await CalendarRecordModel.build()
 
-    const recordList = await CalendarModel.getRecordList()
-
-    const holidays = await CalendarDayModel.getHolidayList(year, month)
+    const holidays = await CalendarDayModel.getHolidayList(
+      this.year,
+      this.month
+    )
 
     this.recordList = recordList
     this.holidays = holidays
@@ -76,30 +75,7 @@ export default class CalendarModel {
   }
 
   static async getRecordList() {
-    let recordList = await request.GET({
-      url: API,
-      toJSON: true,
-    })
-
-    recordList = recordList.map((record) => ({
-      date: record[0],
-      period: CalendarModel.getPeriodId(record[1]),
-      memberSign: record[2],
-      leaderSign: record[3],
-      hasImage: record[4],
-      teacherSign: record[5],
-    }))
-
-    return recordList
-  }
-
-  static getPeriodId(name) {
-    if (name.startsWith('上午')) {
-      return 'morning'
-    }
-    if (name.startsWith('下午')) {
-      return 'afternoon'
-    }
-    return 'evening'
+    const result = await CalendarRecordModel.build()
+    return result
   }
 }

@@ -1,15 +1,14 @@
-import isMobile from './device-manager.js'
 import * as elementManager from './element-manager.js'
 
 export default class CalendarDateView {
-  constructor() {
-    this.mobile = isMobile()
+  constructor(view) {
+    this.view = view
     this.calendar = document.querySelector('.calendar')
 
     this.element = elementManager.createElement({
       tag: 'span',
       classes: ['date'],
-      style: !this.mobile ? 'aspect-ratio: 1.2;' : null,
+      style: !view.mobile ? 'aspect-ratio: 1.2;' : null,
     })
   }
 
@@ -25,7 +24,7 @@ export default class CalendarDateView {
     elementManager.createElement({
       tag: 'span',
       classes: ['title'],
-      style: !this.mobile ? 'margin-right: auto;padding-left: 10px;' : null,
+      style: !this.view.mobile ? 'margin-right: auto;padding-left: 10px;' : '',
       innerHTML: String(monthDate),
       appendTo: this.element,
     })

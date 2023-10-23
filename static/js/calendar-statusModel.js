@@ -37,16 +37,6 @@ export default class CalendarStatusModel {
     }
   }
 
-  static createStatusByJSON({ period, type, content }) {
-    const result = new CalendarStatusModel(null)
-
-    result.period = period
-    result.type = type
-    result.content = content
-
-    return result
-  }
-
   static isPasted(date) {
     const now = dateUtil.getDateStr()
 

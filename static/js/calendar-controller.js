@@ -10,7 +10,9 @@ export default class CalendarController {
     this.refreshBtn = view.header.refreshBtn
   }
 
-  init() {
+  async init() {
+    await this.view.refreshDates(this.model.month, this.model.dayList)
+
     this.backBtn.onclick = () => {
       this.backBtnOnClick()
     }
@@ -30,16 +32,16 @@ export default class CalendarController {
     )
   }
 
-  backBtnOnClick() {
+  async backBtnOnClick() {
     this.model.addMonth(-1)
-    this.view.refreshDates(this.model.month, this.model.dayList)
+    await this.view.refreshDates(this.model.month, this.model.dayList)
 
     this.btnChange()
   }
 
-  forwardBtnOnClick() {
+  async forwardBtnOnClick() {
     this.model.addMonth(1)
-    this.view.refreshDates(this.model.month, this.model.dayList)
+    await this.view.refreshDates(this.model.month, this.model.dayList)
 
     this.btnChange()
   }
@@ -74,16 +76,8 @@ export default class CalendarController {
   }
 
   resize() {
-    if (this.mobile !== isMobile()) {
-      this.mobile = !this.mobile
-
-      if (this.mobile) {
-        this.view.calendar.style = 'transform-origin: top left;scale: 0.7;'
-        this.view.calendarInterface.style = ''
-      } else {
-        this.view.calendar.style = ''
-        this.view.calendarInterface.style = 'width: 90%;'
-      }
+    if (this.view.mobile !== isMobile()) {
+      this.view.deviceSetup()
 
       this.view.refreshDates(this.model.month, this.model.dayList)
     }
