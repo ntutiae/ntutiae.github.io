@@ -1,4 +1,4 @@
-import isMobile from './device-manager.js'
+import isMobile from '../device-manager.js'
 
 export default class CalendarController {
   constructor(model, view) {

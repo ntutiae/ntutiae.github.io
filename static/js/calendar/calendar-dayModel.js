@@ -1,5 +1,5 @@
-import * as request from './request.js'
-import * as dateUtil from './date-util.js'
+import * as request from '../request.js'
+import * as dateUtil from '../date-util.js'
 import CalendarStatusModel from './calendar-statusModel.js'
 
 const getTaiwanCalendarUrl = (year) =>

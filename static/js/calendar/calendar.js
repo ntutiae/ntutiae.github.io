@@ -6,10 +6,8 @@ const main = async () => {
   const model = await CalendarModel.build()
   const view = CalendarView.build()
 
-  await view.refreshDates(model.month, model.dayList)
-
   const controller = new CalendarController(model, view)
-  controller.init()
+  await controller.init()
 }
 
 main()

@@ -1,4 +1,4 @@
-import * as dateUtil from './date-util.js'
+import * as dateUtil from '../date-util.js'
 
 export default class CalendarStatusModel {
   constructor({ record, period }) {

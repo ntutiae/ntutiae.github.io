@@ -1,4 +1,4 @@
-import * as dateUtil from './date-util.js'
+import * as dateUtil from '../date-util.js'
 import CalendarDayModel from './calendar-dayModel.js'
 import CalendarRecordModel from './calendar-recordModel.js'
 
