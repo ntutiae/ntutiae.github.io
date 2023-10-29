@@ -1,6 +1,6 @@
-import CalendarController from './calendar-controller.js'
-import CalendarModel from './calendar-model.js'
-import CalendarView from './calendar-view.js'
+import CalendarController from './controller/calendar-controller.js'
+import CalendarModel from './model/calendar-model.js'
+import CalendarView from './view/calendar-view.js'
 
 const main = async () => {
   const model = await CalendarModel.build()

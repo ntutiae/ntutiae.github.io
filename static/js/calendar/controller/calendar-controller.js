@@ -1,4 +1,4 @@
-import isMobile from '../device-manager.js'
+import isMobile from '../../device-manager.js'
 
 export default class CalendarController {
   constructor(model, view) {
@@ -14,10 +14,10 @@ export default class CalendarController {
     await this.view.refreshDates(this.model.month, this.model.dayList)
 
     this.backBtn.onclick = () => {
-      this.backBtnOnClick()
+      this.changeMonth(-1)
     }
     this.forwardBtn.onclick = () => {
-      this.forwardBtnOnClick()
+      this.changeMonth(1)
     }
     this.refreshBtn.onclick = () => {
       this.refreshBtnOnClick()
@@ -32,15 +32,8 @@ export default class CalendarController {
     )
   }
 
-  async backBtnOnClick() {
-    this.model.addMonth(-1)
-    await this.view.refreshDates(this.model.month, this.model.dayList)
-
-    this.btnChange()
-  }
-
-  async forwardBtnOnClick() {
-    this.model.addMonth(1)
+  async changeMonth(direction) {
+    this.model.addMonth(direction)
     await this.view.refreshDates(this.model.month, this.model.dayList)
 
     this.btnChange()

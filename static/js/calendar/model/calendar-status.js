@@ -1,9 +1,14 @@
-import * as dateUtil from '../date-util.js'
+import * as dateUtil from '../../date-util.js'
+
+const MORNING = 'morning'
+const AFTERNOON = 'afternoon'
+const EVENING = 'evening'
 
 export default class CalendarStatusModel {
   constructor({ record, period }) {
     if (!record) {
       this.period = period
+      this.timeName = CalendarStatusModel.getTimeName(period)
       this.type = 'idle'
       this.content = '閒置'
 
@@ -11,6 +16,7 @@ export default class CalendarStatusModel {
     }
 
     this.period = record.period
+    this.timeName = CalendarStatusModel.getTimeName(this.period)
 
     const vaild =
       record.memberSign &&
@@ -41,5 +47,21 @@ export default class CalendarStatusModel {
     const now = dateUtil.getDateStr()
 
     return Number(now) > Number(date)
+  }
+
+  static getTimeName(period) {
+    switch (period) {
+      case MORNING:
+        return '上午'
+
+      case AFTERNOON:
+        return '下午'
+
+      case EVENING:
+        return '晚上'
+
+      default:
+        return null
+    }
   }
 }

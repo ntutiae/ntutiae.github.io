@@ -1,11 +1,11 @@
-import * as request from '../request.js'
-import * as dateUtil from '../date-util.js'
-import CalendarStatusModel from './calendar-statusModel.js'
+import * as request from '../../request.js'
+import * as dateUtil from '../../date-util.js'
+import CalendarStatusModel from './calendar-status.js'
+import { TaiwanCalendarUrl } from '../config.js'
 
-const getTaiwanCalendarUrl = (year) =>
-  `https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/${year}.json`
+const getTaiwanCalendarUrl = (year) => `${TaiwanCalendarUrl}/${year}.json`
 
-export default class CalendarDayModel {
+export default class CalendarDateModel {
   constructor(model, date, monthDate, holidays) {
     this.holidays = holidays
     this.monthDate = monthDate
@@ -53,13 +53,13 @@ export default class CalendarDayModel {
   }
 
   static async getHolidayList(year, month) {
-    let dat = await CalendarDayModel.getTaiwanCalendar(year)
+    let dat = await CalendarDateModel.getTaiwanCalendar(year)
 
     if (month > 10)
-      dat = dat.concat(await CalendarDayModel.getTaiwanCalendar(year + 1))
+      dat = dat.concat(await CalendarDateModel.getTaiwanCalendar(year + 1))
 
     if (month < 3)
-      dat = dat.concat(await CalendarDayModel.getTaiwanCalendar(year - 1))
+      dat = dat.concat(await CalendarDateModel.getTaiwanCalendar(year - 1))
 
     const holiday = dat.filter(
       (d) =>

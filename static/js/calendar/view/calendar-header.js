@@ -1,4 +1,4 @@
-import * as elementManager from '../element-manager.js'
+import * as elementManager from '../../element-manager.js'
 
 export default class CalendarHeaderView {
   constructor() {

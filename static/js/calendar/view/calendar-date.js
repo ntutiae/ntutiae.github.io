@@ -1,4 +1,4 @@
-import * as elementManager from '../element-manager.js'
+import * as elementManager from '../../element-manager.js'
 
 export default class CalendarDateView {
   constructor(view) {
@@ -10,6 +10,8 @@ export default class CalendarDateView {
       classes: ['date'],
       style: !view.mobile ? 'aspect-ratio: 1.2;' : null,
     })
+
+    this.urlDateStr = null
   }
 
   classAdd(className) {
@@ -33,10 +35,12 @@ export default class CalendarDateView {
   }
 
   setHolidayReason(reason) {
+    const reasonCut = reason.length > 6 ? `${reason.slice(0, 4)}...` : reason
+
     elementManager.createElement({
       tag: 'div',
       classes: ['content'],
-      innerHTML: reason,
+      innerHTML: reasonCut,
       appendTo: this.element,
     })
 
@@ -46,19 +50,21 @@ export default class CalendarDateView {
   setStatus(day) {
     this.classAdd('date')
 
+    this.urlDateStr = day.urlDateStr
+
     this.morning = this.createStatusElement(day.morning)
     this.afternoon = this.createStatusElement(day.afternoon)
     this.evening = this.createStatusElement(day.evening)
   }
 
-  createStatusElement({ type, period, content, urlDateStr }) {
+  createStatusElement({ type, period, content, timeName }) {
     return elementManager.createElement({
       tag: 'a',
       classes: ['status', type],
-      innerHTML: `${CalendarDateView.getTimeName(period)} ${content}`,
+      innerHTML: `${timeName} ${content}`,
       href:
         type === 'idle'
-          ? CalendarDateView.getFormURL(urlDateStr, period)
+          ? CalendarDateView.getFormURL(this.urlDateStr, period)
           : null,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -69,14 +75,6 @@ export default class CalendarDateView {
 
   appendToCalendar() {
     this.calendar.appendChild(this.element)
-  }
-
-  static getTimeName(timeId) {
-    if (timeId === 'morning') return '上午'
-    if (timeId === 'afternoon') return '下午'
-    if (timeId === 'evening') return '晚上'
-
-    return null
   }
 
   static getFormURL(date, timeId) {

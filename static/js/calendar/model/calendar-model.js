@@ -1,9 +1,11 @@
-import * as dateUtil from '../date-util.js'
-import CalendarDayModel from './calendar-dayModel.js'
-import CalendarRecordModel from './calendar-recordModel.js'
+import * as dateUtil from '../../date-util.js'
+import CalendarDateModel from './calendar-date.js'
+import getRecord from './calendar-record.js'
 
 export default class CalendarModel {
   constructor(holidays, year, month, recordList) {
+    this.date = new Date()
+
     this.year = year
     this.month = month
     this.holidays = holidays
@@ -15,9 +17,10 @@ export default class CalendarModel {
   static async build() {
     const { year, month } = dateUtil.getDateJSON()
 
-    const recordList = await CalendarRecordModel.build()
-
-    const holidays = await CalendarDayModel.getHolidayList(year, month)
+    const { recordList, holidays } = await CalendarModel.getStaticData(
+      year,
+      month
+    )
 
     const result = new CalendarModel(holidays, year, month, recordList)
 
@@ -37,22 +40,19 @@ export default class CalendarModel {
   }
 
   getDayStatus(date, monthDate) {
-    const day = new CalendarDayModel(this, date, monthDate, this.holidays)
+    const day = new CalendarDateModel(this, date, monthDate, this.holidays)
 
     if (day.type === 'empty' || day.type === 'holiday') return day
 
-    const filtredList = this.recordList.filter((record) => record.date === date)
+    this.recordList[date]?.forEach((record) => day.setStatus(record))
 
-    filtredList.forEach((record) => day.setStatus(record))
     day.autoFill()
 
     return day
   }
 
   async refresh() {
-    const recordList = await CalendarRecordModel.build()
-
-    const holidays = await CalendarDayModel.getHolidayList(
+    const { recordList, holidays } = await CalendarModel.getStaticData(
       this.year,
       this.month
     )
@@ -69,13 +69,18 @@ export default class CalendarModel {
 
     this.month += num
 
-    this.month = new Date(this.year, this.month - 1).getMonth() + 1
+    this.date.setMonth(this.month - 1)
+    this.month = this.date.getMonth() + 1
 
     this.dayList = this.getDayList()
   }
 
-  static async getRecordList() {
-    const result = await CalendarRecordModel.build()
-    return result
+  static async getStaticData(year, month) {
+    const [recordList, holidays] = await Promise.all([
+      getRecord(),
+      CalendarDateModel.getHolidayList(year, month),
+    ])
+
+    return { recordList, holidays }
   }
 }
