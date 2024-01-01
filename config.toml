@@ -36,6 +36,11 @@ hasCJKLanguage = true
     url = "/reflections/111-2/5"
 
 [[menu.main]]
+    name = "留學專區"
+    parent = "works"
+    url = "/abroad"
+
+[[menu.main]]
     name = "常見問題"
     weight = 30
     url = "/faq/"
@@ -46,6 +51,6 @@ hasCJKLanguage = true
     url = "/events/"
 
 [[menu.main]]
-    name = "科辦借用"
+    name = "會辦借用"
     weight = 50
     url = "/borrowing/"

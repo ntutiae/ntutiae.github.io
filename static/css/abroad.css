@@ -1,0 +1,55 @@
+@keyframes disappear { 
+  0% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.01;
+  }
+}
+
+@keyframes appear { 
+  0% {
+    opacity: 0.01;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+
+.canvas-container {
+  position: relative;
+}
+
+canvas {
+  position: absolute;
+}
+
+.turn-page-btn {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 8%;
+  
+  background-color: rgb(48, 46, 46);
+  opacity: 0.01;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.float-right {
+  left: 92%;
+}
+
+.turn-page-btn:hover:not(.disabled) {
+  animation: appear 0.5s;
+  opacity: 0.6;
+}
+
+.turn-page-btn:not(:hover):not(.disabled) {
+  animation: disappear 0.3s;
+} 
