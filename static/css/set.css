@@ -24,7 +24,7 @@ html, body{
 
     color: var(--wcolor);
     font-size: 16px;
-    font-family: 'Montserrat', sans-seri;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 /* @media (max-width: 576px){
@@ -57,7 +57,7 @@ html, body{
     z-index: 999;
     user-select: none;
     background-color: var(--wcolor);
-    font-family: 'Montserrat', 'Noto Sans TC', sans-seri;
+    font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
 }
 .navbar a{
     text-decoration: none;

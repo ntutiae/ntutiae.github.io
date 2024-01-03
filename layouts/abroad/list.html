@@ -13,10 +13,10 @@
             <div class="canvas-container">
                 <canvas id="pdf-canvas"></canvas>
                 <span class="turn-page-btn disabled" id="turn-last">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="148" viewBox="-100 -845 720 720" width="96" fill="#FFFFFF"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" fill="#FFFFFF"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
                 </span>
-                <span class="turn-page-btn float-right" id="turn-next">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="148" viewBox="100 -845 720 720" width="96" fill="#FFFFFF"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+                <span class="turn-page-btn" id="turn-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#FFFFFF"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
                 </span>
             </div>
             <br />
@@ -28,31 +28,26 @@
     </div>
 </div>
 <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.1.266/build/pdf.worker.min.js';
+
+    const container = document.querySelector('.canvas-container');
+    const canvas = document.getElementById('pdf-canvas');
+
+    const turnLast = document.querySelector("#turn-last");
+    const turnNext = document.querySelector("#turn-next");
+
+    const pdfUrl = '/abroad/1226_UniSA.pdf';
+    
+    let pageNum = 1;
+
     (async () => {
-        let pageNum = 1;
-
-        const canvas = document.getElementById('pdf-canvas');
-        const pdfUrl = '/abroad/1226_UniSA.pdf';
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.1.266/build/pdf.worker.min.js';
-
         const pdfDoc = await pdfjsLib.getDocument(pdfUrl);
-        let page = await pdfDoc.getPage(pageNum);
-        let viewport = page.getViewport({ scale: 1 });
-    
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-
-        const container = document.querySelector('.canvas-container');
-        container.style = `height: ${viewport.height}px;width: ${viewport.width}px;`;
-    
+        
         const ctx = canvas.getContext('2d');
-        page.render({
-            canvasContext: ctx,
-            viewport: viewport,
-        });
-
-        const turnLast = document.querySelector("#turn-last");
-        const turnNext = document.querySelector("#turn-next");
+        renderCanvas(
+            ctx, 
+            await pdfDoc.getPage(pageNum)
+        );
 
         turnLast.onclick = async () => {
             if(pageNum === 1) return;
@@ -63,13 +58,10 @@
             if(pageNum === 1) 
                 turnLast.classList.add('disabled');
             
-            page = await pdfDoc.getPage(pageNum);
-            viewport = page.getViewport({ scale: 1 });
-
-            page.render({
-                canvasContext: ctx,
-                viewport: viewport,
-            });
+            renderCanvas(
+                ctx, 
+                await pdfDoc.getPage(pageNum)
+            );
         }
 
         turnNext.onclick = async () => {
@@ -81,14 +73,45 @@
             if(pageNum === pdfDoc._pdfInfo.numPages) 
                 turnNext.classList.add('disabled');
 
-            page = await pdfDoc.getPage(pageNum);
-            viewport = page.getViewport({ scale: 1 });
-
-            page.render({
-                canvasContext: ctx,
-                viewport: viewport,
-            });
+            renderCanvas(
+                ctx,
+                await pdfDoc.getPage(pageNum)
+            );
         }
+
+        addEventListener('resize', async () => {
+            renderCanvas(
+                ctx,
+                await pdfDoc.getPage(pageNum)
+            );
+        });
     })();
+
+    function getScale(width) {
+        const container = document.querySelector('.canvas-container');
+        const baseWidth = container.offsetWidth;
+
+        return baseWidth >= width ? 1 : baseWidth / width;
+    }
+
+    function renderCanvas(ctx, page) {
+        const viewport = page.getViewport({ 
+            scale: getScale(page.view[2])
+        });
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        container.style = `height: ${viewport.height}px;`;
+
+        turnNext.style = `margin-left: ${viewport.width - turnNext.offsetWidth}px;`;
+        container.querySelectorAll('svg')
+            .forEach(ele => ele.width = `${turnNext.offsetWidth * 0.9}px`);
+
+        page.render({
+            canvasContext: ctx,
+            viewport: viewport,
+        });
+    }
 </script>
 {{ end }}

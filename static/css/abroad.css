@@ -21,9 +21,11 @@
 
 .canvas-container {
   position: relative;
+  width: 100%;
 }
 
 canvas {
+  display: block; 
   position: absolute;
 }
 
@@ -39,10 +41,6 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.float-right {
-  left: 92%;
 }
 
 .turn-page-btn:hover:not(.disabled) {
