@@ -96,15 +96,21 @@
 
     function renderCanvas(ctx, page) {
         const viewport = page.getViewport({ 
-            scale: getScale(page.view[2])
+            scale: 1
         });
+
+        const scale = getScale(page.view[2]);
 
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
-        container.style = `height: ${viewport.height}px;`;
+        const baseHeight = viewport.height * scale;
+        const baseWidth = viewport.width * scale;
+        canvas.style = `height: ${baseHeight}px;width: ${baseWidth}px;`;
 
-        turnNext.style = `margin-left: ${viewport.width - turnNext.offsetWidth}px;`;
+        container.style = `height: ${baseHeight}px;`;
+
+        turnNext.style = `margin-left: ${(baseWidth) - turnNext.offsetWidth}px;`;
         container.querySelectorAll('svg')
             .forEach(ele => ele.width = `${turnNext.offsetWidth * 0.9}px`);
 
