@@ -20,7 +20,7 @@ function Homepage() {
 }
 
 function Feature() {
-  const f = document.getElementsByClassName('feature')
+  const f = [...document.getElementsByClassName('feature')]
   f.forEach((el) => {
     const f_input = el.children[0]
     if (window.screen.width < 991) {
