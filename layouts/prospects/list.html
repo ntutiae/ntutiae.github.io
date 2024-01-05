@@ -1,0 +1,25 @@
+{{ define "main" }}
+<link rel="stylesheet" href="/css/events.css">
+<div class="container">
+
+    <div class="row mb-5 title">
+        <h1 class="m-0 title-cn">未來出路</h1>
+        <p class="title-en" style="margin-left: -2rem">Prospects</p>
+    </div>
+
+    {{ range .Pages }}
+    <a class="row event" href="{{ .RelPermalink }}">
+        <div class="w-100 row mx-lg-2 m-2">
+            <div class="col-12 col-lg-7">
+                <p class="m-0 event-time">{{ .Date.Format .Site.Params.TimeFormat }}</p>
+                <h2 class="mb-2">{{ .Title }}</h2>
+                <p>{{ .Summary }}</p>
+            </div>
+            <img class="col-12 col-lg-5" pdf="{{ .Params.filename }}">
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+<script type="module" src="/js/prospects-cover.js"></script>
+{{ end }}
