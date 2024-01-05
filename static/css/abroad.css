@@ -18,6 +18,44 @@
   }
 }
 
+.event-page-content {
+  display: block!important;
+}
+
+.back-btn-base {
+  display: flex;
+  margin-left: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-wrap: nowrap;
+}
+
+.back-btn {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1rem;
+
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 5 / 2;
+  border-radius: 4rem!important;
+}
+
+.back-btn > div {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center!important;
+}
+
+.back-btn > div::before {
+  border-radius: 4rem!important;
+}
+
+.back-btn > div::after {
+  border-radius: 4rem!important;
+}
 
 .canvas-container {
   position: relative;
