@@ -3,6 +3,11 @@ languageCode = "zh"
 title = "智慧自動化工程科 - 國立臺北科技大學"
 hasCJKLanguage = true
 
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+
 [params]
     timeFormat = "Jan. 2. 2006"
 

@@ -18,8 +18,33 @@
   }
 }
 
+blockquote {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: .875em;
+  color: #6c757d;
+}
+
 .event-page-content {
   display: block!important;
+}
+
+.event-page-content img {
+  max-width: 100%;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.event-page-content p,
+.event-page-content blockquote{
+    width: 100%;
+    line-height: 220%;
+}
+
+.event-page-content a, 
+.event-page-content a:hover{
+  color: auto!important;
+  text-decoration:underline;
 }
 
 .back-btn-base {
@@ -88,4 +113,4 @@ canvas {
 
 .turn-page-btn:not(:hover):not(.disabled) {
   animation: disappear 0.3s;
-} 
+}

@@ -16,24 +16,16 @@
             </a>
         </span>
     </div>
+    <div class="w-100 event-page-title">
+        <p class="m-0">{{ .Date }}</p>
+        <h1 class="mb-4">{{ .Title }}</h1>
+    </div>
     <div>
         <article class="event-page-content">
-            <h2>{{ .Title }}</h2>
-            <h4>by. {{ .Params.author }}</h4>
-            <div class="canvas-container" id="canvas-container">
-                <canvas id="pdf-canvas" container="#canvas-container" lastBtn="#turn-last" nextBtn="#turn-next" src="/file/{{ .Params.filename }}"></canvas>
-                <span class="turn-page-btn disabled" id="turn-last">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -960 960 960" fill="#FFFFFF"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
-                </span>
-                <span class="turn-page-btn" id="turn-next">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#FFFFFF"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
-                </span>
-            </div>
-            <br />
-            <a href="/file/{{ .Params.filename }}">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-                {{ .Params.filename }} 下載
-            </a>
+            {{ .Content }}
+            {{ with .Resources.GetMatch "article-end.md" }}
+                {{ .Content }}
+            {{ end }}
         </article>
     </div>
 </div>
