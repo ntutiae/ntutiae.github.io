@@ -35,6 +35,12 @@ blockquote {
   margin-bottom: 1rem;
 }
 
+.event-page-content p,
+.event-page-content blockquote{
+    width: 100%;
+    line-height: 220%;
+}
+
 .event-page-content a, 
 .event-page-content a:hover{
   color: auto!important;
