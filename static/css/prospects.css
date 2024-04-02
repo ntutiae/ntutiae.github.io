@@ -39,6 +39,7 @@ blockquote {
 .event-page-content blockquote{
     width: 100%;
     line-height: 220%;
+    display: inline;
 }
 
 .event-page-content a, 
